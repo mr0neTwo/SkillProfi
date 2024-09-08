@@ -1,0 +1,84 @@
+@WebApplication1_HostAddress = http://localhost:5272
+
+POST {{WebApplication1_HostAddress}}/api/User/Create
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Name": "John Doe",
+  "Email": "john.doe@example.com",
+  "Password": "123456"
+}
+
+###
+
+POST {{WebApplication1_HostAddress}}/api/User/Create
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Name": "Jane Smith",
+  "Email": "jane.smith@example.com",
+  "Password": "SecurePassword123!?"
+}
+###
+
+POST {{WebApplication1_HostAddress}}/api/User/Create
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Name": "Alice Johnson",
+  "Email": "alice.johnson@example.com",
+  "Password": "SecurePassword123!?"
+}
+
+###
+
+GET {{WebApplication1_HostAddress}}/api/User/GetList
+Accept: application/json
+
+###
+
+GET {{WebApplication1_HostAddress}}/api/User/Get/1
+Accept: application/json
+
+###
+
+PUT {{WebApplication1_HostAddress}}/api/User/Update
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Id": 1,
+  "Email": "alice.johnson@example.com"
+}
+
+###
+
+GET {{WebApplication1_HostAddress}}/api/User/Get/1
+Accept: application/json
+
+###
+
+DELETE {{WebApplication1_HostAddress}}/api/User/Delete/2
+Accept: application/json
+
+###
+
+GET {{WebApplication1_HostAddress}}/api/User/GetList
+Accept: application/json
+
+###
+
+POST {{WebApplication1_HostAddress}}/api/ClientRequest/Create
+Content-Type: application/json
+Accept: application/json
+
+{
+  "ClientName": "John Doe",
+  "ClientEmail": "john.doe@example.com",
+  "Message": "123456"
+}
+
+###
