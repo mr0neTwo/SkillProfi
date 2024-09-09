@@ -1,4 +1,6 @@
-﻿namespace SkillProfi.Persistence;
+﻿using SkillProfi.Persistence.DefaultData;
+
+namespace SkillProfi.Persistence;
 
 public static class DbInitializer
 {
@@ -14,15 +16,17 @@ public static class DbInitializer
 	private static async Task FillDefaultSiteItems(AppDbContext dbContext)
 	{
 		await dbContext.SiteItems.AddRangeAsync(DefaultSiteItems.GetValues());
+		await dbContext.Companies.AddAsync(DefaultCompanyData.GetValue());
 		await dbContext.SaveChangesAsync();
 	}
 
 	private static async Task FillDefaultValues(AppDbContext dbContext)
 	{
-		await dbContext.Users.AddRangeAsync(DefaultData.Users());
-		await dbContext.ClientRequests.AddRangeAsync(DefaultData.ClientRequests());
-		await dbContext.Services.AddRangeAsync(DefaultData.Services());
-		await dbContext.Projects.AddRangeAsync(DefaultData.Projects());
+		await dbContext.Users.AddRangeAsync(DefaultContent.Users());
+		await dbContext.ClientRequests.AddRangeAsync(DefaultContent.ClientRequests());
+		await dbContext.Services.AddRangeAsync(DefaultContent.Services());
+		await dbContext.Projects.AddRangeAsync(DefaultContent.Projects());
+		await dbContext.Posts.AddRangeAsync(DefaultContent.Posts());
 		
 		await dbContext.SaveChangesAsync();
 	}

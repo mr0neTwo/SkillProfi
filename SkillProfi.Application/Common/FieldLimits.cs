@@ -21,6 +21,16 @@ public static class FieldLimits
 	public const int ProjectImageUrlMaxLength = 50;
 	public const int ProjectDescriptionMaxLength = 4096;
 	
+	public const int PostTitleMaxLength = 100;
+	public const int PostImageUrlMaxLength = 50;
+	public const int PostDescriptionMaxLength = 4096;
+	
+	public const int CompanyNameMaxLength = 50;
+	public const int CompanyEmailMaxLength = 30;
+	public const int CompanyPhoneMaxLength = 20;
+	public const int CompanyAddressMaxLength = 100;
+	public const int CompanyDirectorNameMaxLength = 50;
+	
 	public const int MaxItemsPerPage = 50;
 	
 	

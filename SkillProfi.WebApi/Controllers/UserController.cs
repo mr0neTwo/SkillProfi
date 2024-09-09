@@ -5,7 +5,6 @@ using SkillProfi.Application.CQRS.Users.Commands.Delete;
 using SkillProfi.Application.CQRS.Users.Commands.Update;
 using SkillProfi.Application.CQRS.Users.Queries.Get;
 using SkillProfi.Application.CQRS.Users.Queries.GetList;
-using SkillProfi.WebApi.Models;
 using SkillProfi.WebApi.Models.Users;
 
 namespace SkillProfi.WebApi.Controllers;

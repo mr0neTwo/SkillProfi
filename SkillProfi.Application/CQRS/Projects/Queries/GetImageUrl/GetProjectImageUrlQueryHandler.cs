@@ -6,9 +6,9 @@ using SkillProfi.Domain;
 
 namespace SkillProfi.Application.CQRS.Projects.Queries.GetImageUrl;
 
-public sealed class GetImageUrlQueryHandler(IAppContext appContext) : IRequestHandler<GetImageUrlQuery, string?>
+public sealed class GetProjectImageUrlQueryHandler(IAppContext appContext) : IRequestHandler<GetProjectImageUrlQuery, string?>
 {
-	public async Task<string?> Handle(GetImageUrlQuery request, CancellationToken cancellationToken)
+	public async Task<string?> Handle(GetProjectImageUrlQuery request, CancellationToken cancellationToken)
 	{
 		Project? project = await appContext.Projects.FirstOrDefaultAsync(project => project.Id == request.Id, cancellationToken);
 

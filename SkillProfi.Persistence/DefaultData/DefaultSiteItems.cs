@@ -1,6 +1,6 @@
 ﻿using SkillProfi.Domain;
 
-namespace SkillProfi.Persistence;
+namespace SkillProfi.Persistence.DefaultData;
 
 public static class DefaultSiteItems
 {

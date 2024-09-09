@@ -1,8 +1,8 @@
 ﻿using SkillProfi.Domain;
 
-namespace SkillProfi.Persistence;
+namespace SkillProfi.Persistence.DefaultData;
 
-public static class DefaultData
+public static class DefaultContent
 {
     public static User[] Users()
     {
@@ -391,5 +391,32 @@ public static class DefaultData
         ];
 
         return projects;
+    }
+
+    public static Post[] Posts()
+    {
+        Post[] posts =
+        [
+            new Post()
+            {
+                Title = "Открытие нового офиса в Санкт-Петербурге",
+                ImageUrl = "images/4.png",
+                Description = "Мы рады сообщить об открытии нашего нового офиса в Санкт-Петербурге. Это расширение позволит нам быть ближе к нашим клиентам и предоставлять более оперативные IT-консалтинговые услуги."
+            },
+            new Post()
+            {
+                Title = "Вебинар: Будущее кибербезопасности",
+                ImageUrl = "images/5.png",
+                Description = "Приглашаем вас принять участие в нашем вебинаре, посвящённом вопросам кибербезопасности. Наши эксперты обсудят текущие угрозы и тренды в защите данных для бизнеса."
+            },
+            new Post()
+            {
+                Title = "Встреча с партнёрами: Обсуждение инновационных IT-решений",
+                ImageUrl = "images/6.png",
+                Description = "Недавно состоялась встреча с нашими ключевыми партнёрами, на которой мы обсудили последние инновации в IT-индустрии и стратегию совместного развития."
+            },
+        ];
+        
+        return posts;
     }
 }

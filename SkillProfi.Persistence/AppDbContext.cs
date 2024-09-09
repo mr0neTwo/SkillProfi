@@ -13,6 +13,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 	public DbSet<Project> Projects { get; set; }
 	public DbSet<Service> Services { get; set; }
 	public DbSet<SiteItem> SiteItems { get; set; }
+	public DbSet<Post> Posts { get; set; }
 	public DbSet<SocialMedia> SocialMedias { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,6 +25,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 		modelBuilder.ApplyConfiguration(new CompanyConfiguration());
 		modelBuilder.ApplyConfiguration(new ProjectConfiguration());
 		modelBuilder.ApplyConfiguration(new ServiceConfiguration());
+		modelBuilder.ApplyConfiguration(new PostConfiguration());
 		modelBuilder.ApplyConfiguration(new SiteItemConfiguration());
 		modelBuilder.ApplyConfiguration(new SocialMediaConfiguration());
 	}

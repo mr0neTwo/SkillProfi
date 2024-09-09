@@ -47,8 +47,8 @@ public class ProjectController(IMapper mapper, IImageStore imageStore) : BaseCon
 		if (!string.IsNullOrEmpty(updateProjectModel.ImageBase64))
 		{
 			updateProjectCommand.ImageUrl = await imageStore.SaveImageAsync(updateProjectModel.ImageBase64);
-			GetImageUrlQuery imageUrlQuery = new() { Id = updateProjectCommand.Id };
-			string? oldImageUrl = await Mediator.Send(imageUrlQuery);
+			GetProjectImageUrlQuery projectImageUrlQuery = new() { Id = updateProjectCommand.Id };
+			string? oldImageUrl = await Mediator.Send(projectImageUrlQuery);
 
 			if (!string.IsNullOrEmpty(oldImageUrl))
 			{
@@ -67,8 +67,8 @@ public class ProjectController(IMapper mapper, IImageStore imageStore) : BaseCon
 	[Authorize]
 	public async Task<IActionResult> Delete(int id)
 	{
-		GetImageUrlQuery imageUrlQuery = new() { Id = id };
-		string? imageUrl = await Mediator.Send(imageUrlQuery);
+		GetProjectImageUrlQuery projectImageUrlQuery = new() { Id = id };
+		string? imageUrl = await Mediator.Send(projectImageUrlQuery);
 
 		if (!string.IsNullOrEmpty(imageUrl))
 		{

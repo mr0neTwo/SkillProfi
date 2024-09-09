@@ -11,6 +11,7 @@ public interface IAppContext
 	public DbSet<Project> Projects { get; set; }
 	public DbSet<Service> Services { get; set; }
 	public DbSet<SiteItem> SiteItems { get; set; }
+	public DbSet<Post> Posts { get; set; }
 	public DbSet<SocialMedia> SocialMedias { get; set; }
 	
 	public Task<int> SaveChangesAsync(CancellationToken cancellationToken);
