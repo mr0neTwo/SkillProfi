@@ -22,7 +22,7 @@ public sealed class ProjectUpdatingTests(SkillProfiApplicationFactory<Program> f
 
 		await AddEntitiesAsync(project);
 		
-		UpdateProjectModel request = new()
+		UpdateProjectDto request = new()
 		{
 			Id = project.Id,
 			Title = "Updated Title",
@@ -56,7 +56,7 @@ public sealed class ProjectUpdatingTests(SkillProfiApplicationFactory<Program> f
 		Project project = TestProjectData.Project1;
 		await AddEntitiesAsync(project);
 		
-		UpdateProjectModel request = new()
+		UpdateProjectDto request = new()
 		{
 			Id = project.Id,
 			Title = new string('x', FieldLimits.ProjectTitleMaxLength + 1),  
@@ -76,8 +76,8 @@ public sealed class ProjectUpdatingTests(SkillProfiApplicationFactory<Program> f
 
 			string[,] errors = 
 			{
-				{ "Title", $"Title must be at least {FieldLimits.ProjectTitleMaxLength} characters long." },
-				{ "Description", $"Description must be at least {FieldLimits.ProjectDescriptionMaxLength} characters long." }
+				{ "Title", $"Title must be at most {FieldLimits.ProjectTitleMaxLength} characters long." },
+				{ "Description", $"Description must be at most {FieldLimits.ProjectDescriptionMaxLength} characters long." }
 			};
 
 			AssertErrors(jsonResponse, errors);

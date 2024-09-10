@@ -19,7 +19,7 @@ public sealed class ServiceCreationTests(SkillProfiApplicationFactory<Program> f
 		// Arrange
 		Service testService = TestServiceData.TestService1;
 		
-		CreateServiceModel request = new()
+		CreateServiceDto request = new()
 		{
 			Title = testService.Title, 
 			Description = testService.Description
@@ -49,7 +49,7 @@ public sealed class ServiceCreationTests(SkillProfiApplicationFactory<Program> f
 	public async Task CreateService_FailedByEmptyFields()
 	{
 		// Arrange
-		CreateServiceModel request = new();
+		CreateServiceDto request = new();
 		
 		try
 		{
@@ -80,7 +80,7 @@ public sealed class ServiceCreationTests(SkillProfiApplicationFactory<Program> f
 	public async Task CreateService_FailedByOverLimitFields()
 	{
 		// Arrange
-		CreateServiceModel request = new()
+		CreateServiceDto request = new()
 		{
 			Title = new string('x', FieldLimits.ServiceTitleMaxLength + 1),  
 			Description = new string('x', FieldLimits.ServiceDescriptionMaxLength + 1)
@@ -99,8 +99,8 @@ public sealed class ServiceCreationTests(SkillProfiApplicationFactory<Program> f
 			
 			string[,] errors = 
 			{
-				{ "Title", $"Title must be at least {FieldLimits.ServiceTitleMaxLength} characters long." },
-				{ "Description", $"Description must be at least {FieldLimits.ServiceDescriptionMaxLength} characters long." }
+				{ "Title", $"Title must be at most {FieldLimits.ServiceTitleMaxLength} characters long." },
+				{ "Description", $"Description must be at most {FieldLimits.ServiceDescriptionMaxLength} characters long." }
 			};
 
 			AssertErrors(jsonResponse, errors);

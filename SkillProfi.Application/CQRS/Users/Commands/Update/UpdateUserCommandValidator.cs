@@ -23,7 +23,7 @@ public sealed class UpdateUserCommandValidator : AbstractValidator<UpdateUserCom
 			updateUserCommand => !string.IsNullOrEmpty(updateUserCommand.Name), 
 			() => RuleFor(updateUserCommand => updateUserCommand.Name)
 				  .MaximumLength(FieldLimits.UserNameMaxLength)
-				  .WithMessage($"Name must be at least {FieldLimits.UserNameMaxLength} characters long.")
+				  .WithMessage($"Name must be at most {FieldLimits.UserNameMaxLength} characters long.")
 		);
 		
 		When
@@ -31,7 +31,7 @@ public sealed class UpdateUserCommandValidator : AbstractValidator<UpdateUserCom
 			updateUserCommand => !string.IsNullOrEmpty(updateUserCommand.Email), 
 			() => RuleFor(updateUserCommand => updateUserCommand.Email)
 				  .MaximumLength(FieldLimits.UserEmailMaxLength)
-				  .WithMessage($"Email must be at least {FieldLimits.UserEmailMaxLength} characters long.")
+				  .WithMessage($"Email must be at most {FieldLimits.UserEmailMaxLength} characters long.")
 				  .MustAsync(IsEmailUnique)
 				  .WithMessage("Email already exists.")
 		);
@@ -41,7 +41,7 @@ public sealed class UpdateUserCommandValidator : AbstractValidator<UpdateUserCom
 			updateUserCommand => !string.IsNullOrEmpty(updateUserCommand.Password), 
 			() => RuleFor(updateUserCommand => updateUserCommand.Password)
 				  .MinimumLength(FieldLimits.UserPasswordMinLength)
-				  .WithMessage($"Password must be at least {FieldLimits.UserPasswordMinLength} characters long.")
+				  .WithMessage($"Password must be at most {FieldLimits.UserPasswordMinLength} characters long.")
 				  .Matches(@"[A-Z]")
 				  .WithMessage("Password must contain at least one uppercase letter.")
 				  .Matches(@"[a-z]")

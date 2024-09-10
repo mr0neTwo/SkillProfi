@@ -23,13 +23,13 @@ public class ProjectController(IMapper mapper, IImageStore imageStore) : BaseCon
 	
 	[HttpPost]
 	[Authorize]
-	public async Task<ActionResult<int>> Create([FromBody] CreateProjectModel createProjectModel)
+	public async Task<ActionResult<int>> Create([FromBody] CreateProjectDto createProjectDto)
 	{
-		CreateProjectCommand command = mapper.Map<CreateProjectCommand>(createProjectModel);
+		CreateProjectCommand command = mapper.Map<CreateProjectCommand>(createProjectDto);
 		
-		if (!string.IsNullOrEmpty(createProjectModel.ImageBase64))
+		if (!string.IsNullOrEmpty(createProjectDto.ImageBase64))
 		{
-			command.ImageUrl = await imageStore.SaveImageAsync(createProjectModel.ImageBase64);
+			command.ImageUrl = await imageStore.SaveImageAsync(createProjectDto.ImageBase64);
 		}
 		
 		command.CreatedBy = UserId;
@@ -40,13 +40,13 @@ public class ProjectController(IMapper mapper, IImageStore imageStore) : BaseCon
 	
 	[HttpPut]
 	[Authorize]
-	public async Task<IActionResult> Update([FromBody] UpdateProjectModel updateProjectModel)
+	public async Task<IActionResult> Update([FromBody] UpdateProjectDto updateProjectDto)
 	{
-		UpdateProjectCommand updateProjectCommand = mapper.Map<UpdateProjectCommand>(updateProjectModel);
+		UpdateProjectCommand updateProjectCommand = mapper.Map<UpdateProjectCommand>(updateProjectDto);
 
-		if (!string.IsNullOrEmpty(updateProjectModel.ImageBase64))
+		if (!string.IsNullOrEmpty(updateProjectDto.ImageBase64))
 		{
-			updateProjectCommand.ImageUrl = await imageStore.SaveImageAsync(updateProjectModel.ImageBase64);
+			updateProjectCommand.ImageUrl = await imageStore.SaveImageAsync(updateProjectDto.ImageBase64);
 			GetProjectImageUrlQuery projectImageUrlQuery = new() { Id = updateProjectCommand.Id };
 			string? oldImageUrl = await Mediator.Send(projectImageUrlQuery);
 

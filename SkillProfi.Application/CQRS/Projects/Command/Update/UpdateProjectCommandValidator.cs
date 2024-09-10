@@ -16,7 +16,7 @@ public sealed class UpdateProjectCommandValidator : AbstractValidator<UpdateProj
 			updateProjectCommand => !string.IsNullOrEmpty(updateProjectCommand.Title),
 			() => RuleFor(updateProjectCommand => updateProjectCommand.Title)
 				  .MaximumLength(FieldLimits.ProjectTitleMaxLength)
-				  .WithMessage($"Title must be at least {FieldLimits.ProjectTitleMaxLength} characters long.")
+				  .WithMessage($"Title must be at most {FieldLimits.ProjectTitleMaxLength} characters long.")
 		);
 		
 		When
@@ -24,7 +24,7 @@ public sealed class UpdateProjectCommandValidator : AbstractValidator<UpdateProj
 			updateProjectCommand => !string.IsNullOrEmpty(updateProjectCommand.ImageUrl),
 			() => RuleFor(updateProjectCommand => updateProjectCommand.ImageUrl)
 				  .MaximumLength(FieldLimits.ProjectImageUrlMaxLength)
-				  .WithMessage($"ImageUrl must be at least {FieldLimits.ProjectImageUrlMaxLength} characters long.")
+				  .WithMessage($"ImageUrl must be at most {FieldLimits.ProjectImageUrlMaxLength} characters long.")
 		);
 
 		When
@@ -32,7 +32,7 @@ public sealed class UpdateProjectCommandValidator : AbstractValidator<UpdateProj
 			updateProjectCommand => !string.IsNullOrEmpty(updateProjectCommand.Title),
 			() => RuleFor(updateProjectCommand => updateProjectCommand.Description)
 				  .MaximumLength(FieldLimits.ProjectDescriptionMaxLength)
-				  .WithMessage($"Description must be at least {FieldLimits.ProjectDescriptionMaxLength} characters long.")
+				  .WithMessage($"Description must be at most {FieldLimits.ProjectDescriptionMaxLength} characters long.")
 		);
 	}
 }

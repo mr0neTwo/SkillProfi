@@ -17,7 +17,7 @@ public sealed class SiteItemCreationTests(SkillProfiApplicationFactory<Program> 
 	public async Task CreateSiteItem_Success()
 	{
 		// Arrange
-		CreateSiteItemModel request = new()
+		CreateSiteItemDto request = new()
 		{
 			Key = TestSiteItemData.SiteItem1.Key, 
 			Title = TestSiteItemData.SiteItem1.Title
@@ -47,7 +47,7 @@ public sealed class SiteItemCreationTests(SkillProfiApplicationFactory<Program> 
 	public async Task CreateSiteItem_FailedByEmptyFields()
 	{
 		// Arrange
-		CreateSiteItemModel request = new();
+		CreateSiteItemDto request = new();
 
 		try
 		{
@@ -73,7 +73,7 @@ public sealed class SiteItemCreationTests(SkillProfiApplicationFactory<Program> 
 	public async Task CreateSiteItem_FailedByOverLimitFields()
 	{
 		// Arrange
-		CreateSiteItemModel request = new()
+		CreateSiteItemDto request = new()
 		{
 			Key = new string('x', FieldLimits.SiteItemKexMaxLength + 1), 
 			Title = new string('x', FieldLimits.SiteItemTitleMaxLength + 1), 
@@ -91,9 +91,9 @@ public sealed class SiteItemCreationTests(SkillProfiApplicationFactory<Program> 
 			dynamic? jsonResponse = JsonConvert.DeserializeObject<dynamic>(responseContent);
 
 			((string)jsonResponse![0].PropertyName).Should().Be("Key");
-			((string)jsonResponse[0].ErrorMessage).Should().Be($"Key must be at least {FieldLimits.SiteItemKexMaxLength} characters long.");
+			((string)jsonResponse[0].ErrorMessage).Should().Be($"Key must be at most {FieldLimits.SiteItemKexMaxLength} characters long.");
 			((string)jsonResponse[1].PropertyName).Should().Be("Title");
-			((string)jsonResponse[1].ErrorMessage).Should().Be($"Title must be at least {FieldLimits.SiteItemTitleMaxLength} characters long.");
+			((string)jsonResponse[1].ErrorMessage).Should().Be($"Title must be at most {FieldLimits.SiteItemTitleMaxLength} characters long.");
 		}
 		finally
 		{

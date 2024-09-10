@@ -17,7 +17,7 @@ public sealed class ClientRequestCreationTests(SkillProfiApplicationFactory<Prog
 	public async Task CreateClientRequest_Success()
 	{
 		// Arrange
-		CreateClientRequestModel request = new()
+		CreateClientRequestDto request = new()
 		{
 			ClientName = TestClientRequestData.ClientRequest1.ClientName, 
 			ClientEmail = TestClientRequestData.ClientRequest1.ClientEmail, 
@@ -50,7 +50,7 @@ public sealed class ClientRequestCreationTests(SkillProfiApplicationFactory<Prog
 	public async Task CreateClientRequest_FailedByEmptyFields()
 	{
 		// Arrange
-		CreateClientRequestModel request = new();
+		CreateClientRequestDto request = new();
 
 		try
 		{
@@ -80,7 +80,7 @@ public sealed class ClientRequestCreationTests(SkillProfiApplicationFactory<Prog
 	public async Task CreateClientRequest_FailedByOverLimitFields()
 	{
 		// Arrange
-		CreateClientRequestModel request = new()
+		CreateClientRequestDto request = new()
 		{
 			ClientName = new string('x', FieldLimits.ClientRequestNameMaxLength + 1), 
 			ClientEmail = new string('x', FieldLimits.ClientRequestEmailMaxLength + 1), 
@@ -99,11 +99,11 @@ public sealed class ClientRequestCreationTests(SkillProfiApplicationFactory<Prog
 			dynamic? jsonResponse = JsonConvert.DeserializeObject<dynamic>(responseContent);
 
 			((string)jsonResponse![0].PropertyName).Should().Be("ClientName");
-			((string)jsonResponse[0].ErrorMessage).Should().Be($"Client name must be at least {FieldLimits.ClientRequestNameMaxLength} characters long.");
+			((string)jsonResponse[0].ErrorMessage).Should().Be($"Client name must be at most {FieldLimits.ClientRequestNameMaxLength} characters long.");
 			((string)jsonResponse[1].PropertyName).Should().Be("ClientEmail");
-			((string)jsonResponse[1].ErrorMessage).Should().Be($"Client email must be at least {FieldLimits.ClientRequestEmailMaxLength} characters long.");
+			((string)jsonResponse[1].ErrorMessage).Should().Be($"Client email must be at most {FieldLimits.ClientRequestEmailMaxLength} characters long.");
 			((string)jsonResponse[2].PropertyName).Should().Be("Message");
-			((string)jsonResponse[2].ErrorMessage).Should().Be($"Message must be at least {FieldLimits.ClientRequestMessageMaxLength} characters long.");
+			((string)jsonResponse[2].ErrorMessage).Should().Be($"Message must be at most {FieldLimits.ClientRequestMessageMaxLength} characters long.");
 		}
 		finally
 		{

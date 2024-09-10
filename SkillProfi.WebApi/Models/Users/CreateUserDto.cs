@@ -13,8 +13,8 @@ public sealed class CreateUserDto : IMapWith<CreateUserCommand>
 	public void Mapping(Profile profile)
 	{
 		profile.CreateMap<CreateUserDto, CreateUserCommand>()
-			   .ForMember(createUserCommand => createUserCommand.Name, opt => opt.MapFrom(userDto => userDto.Name))
-			   .ForMember(createUserCommand => createUserCommand.Email, opt => opt.MapFrom(userDto => userDto.Email))
-			   .ForMember(createUserCommand => createUserCommand.Password, opt => opt.MapFrom(userDto => userDto.Password));
+			   .ForMember(command => command.Name, opt => opt.MapFrom(dto => dto.Name))
+			   .ForMember(command => command.Email, opt => opt.MapFrom(dto => dto.Email))
+			   .ForMember(command => command.Password, opt => opt.MapFrom(dto => dto.Password));
 	}
 }

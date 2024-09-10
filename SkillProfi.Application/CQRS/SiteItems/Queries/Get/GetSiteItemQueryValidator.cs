@@ -11,6 +11,6 @@ public sealed class GetSiteItemQueryValidator : AbstractValidator<GetSiteItemQue
 			.NotEmpty()
 			.WithMessage("Key is required.")
 			.MaximumLength(FieldLimits.SiteItemKexMaxLength)
-			.WithMessage($"Key must be at least {FieldLimits.SiteItemKexMaxLength} characters long.");
+			.WithMessage($"Key must be at most {FieldLimits.SiteItemKexMaxLength} characters long.");
 	}
 }

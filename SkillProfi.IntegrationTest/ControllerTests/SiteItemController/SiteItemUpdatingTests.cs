@@ -21,7 +21,7 @@ public sealed class SiteItemUpdatingTests(SkillProfiApplicationFactory<Program> 
 
 		await AddEntitiesAsync(siteItem);
 		
-		UpdateSiteItemModel request = new()
+		UpdateSiteItemDto request = new()
 		{
 			Key = siteItem.Key,
 			Title = "Updated Title"
@@ -55,7 +55,7 @@ public sealed class SiteItemUpdatingTests(SkillProfiApplicationFactory<Program> 
 
 		await AddEntitiesAsync(siteItem);
 
-		UpdateSiteItemModel request = new()
+		UpdateSiteItemDto request = new()
 		{
 			Key = siteItem.Key
 		};

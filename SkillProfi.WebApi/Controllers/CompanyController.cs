@@ -20,9 +20,9 @@ public class CompanyController(IMapper mapper) : BaseController
 	
 	[HttpPut]
 	[Authorize]
-	public async Task<IActionResult> Update([FromBody] UpdateCompanyModel updateCompanyModel)
+	public async Task<IActionResult> Update([FromBody] UpdateCompanyDto updateCompanyDto)
 	{
-		UpdateCompanyCommand updateCompanyCommand = mapper.Map<UpdateCompanyCommand>(updateCompanyModel);
+		UpdateCompanyCommand updateCompanyCommand = mapper.Map<UpdateCompanyCommand>(updateCompanyDto);
 		
 		updateCompanyCommand.UpdatedById = UserId;
 		await Mediator.Send(updateCompanyCommand);

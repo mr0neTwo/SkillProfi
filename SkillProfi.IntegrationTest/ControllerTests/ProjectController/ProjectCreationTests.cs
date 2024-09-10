@@ -19,7 +19,7 @@ public sealed class ProjectCreationTests(SkillProfiApplicationFactory<Program> f
 		// Arrange
 		Project testProject = TestProjectData.Project1;
 		
-		CreateProjectModel request = new()
+		CreateProjectDto request = new()
 		{
 			Title = testProject.Title, 
 			Description = testProject.Description
@@ -49,7 +49,7 @@ public sealed class ProjectCreationTests(SkillProfiApplicationFactory<Program> f
 	public async Task CreateProject_FailedByEmptyFields()
 	{
 		// Arrange
-		CreateProjectModel request = new();
+		CreateProjectDto request = new();
 		
 		try
 		{
@@ -80,7 +80,7 @@ public sealed class ProjectCreationTests(SkillProfiApplicationFactory<Program> f
 	public async Task CreateProject_FailedByOverLimitFields()
 	{
 		// Arrange
-		CreateProjectModel request = new()
+		CreateProjectDto request = new()
 		{
 			Title = new string('x', FieldLimits.ProjectTitleMaxLength + 1),  
 			Description = new string('x', FieldLimits.ProjectDescriptionMaxLength + 1)
@@ -99,8 +99,8 @@ public sealed class ProjectCreationTests(SkillProfiApplicationFactory<Program> f
 			
 			string[,] errors = 
 			{
-				{ "Title", $"Title must be at least {FieldLimits.ProjectTitleMaxLength} characters long." },
-				{ "Description", $"Description must be at least {FieldLimits.ProjectDescriptionMaxLength} characters long." }
+				{ "Title", $"Title must be at most {FieldLimits.ProjectTitleMaxLength} characters long." },
+				{ "Description", $"Description must be at most {FieldLimits.ProjectDescriptionMaxLength} characters long." }
 			};
 
 			AssertErrors(jsonResponse, errors);

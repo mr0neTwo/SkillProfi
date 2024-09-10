@@ -22,7 +22,7 @@ public sealed class CompanyUpdatingTests(SkillProfiApplicationFactory<Program> f
 
 		await AddEntitiesAsync(company);
 		
-		UpdateCompanyModel request = new()
+		UpdateCompanyDto request = new()
 		{
 			Name = "Updated name", 
 			Email = "Updated email", 
@@ -61,7 +61,7 @@ public sealed class CompanyUpdatingTests(SkillProfiApplicationFactory<Program> f
 		Company company = TestCompanyData.Company;
 		await AddEntitiesAsync(company);
 		
-		UpdateCompanyModel request = new()
+		UpdateCompanyDto request = new()
 		{
 			Name = new string('x', FieldLimits.CompanyNameMaxLength + 1),  
 			Email = new string('x', FieldLimits.CompanyEmailMaxLength + 1),
@@ -83,11 +83,11 @@ public sealed class CompanyUpdatingTests(SkillProfiApplicationFactory<Program> f
 
 			string[,] errors = 
 			{
-				{ "Name", $"Name must be at least {FieldLimits.CompanyNameMaxLength} characters long." },
-				{ "Email", $"Email must be at least {FieldLimits.CompanyEmailMaxLength} characters long." },
-				{ "PhoneNumber", $"PhoneNumber must be at least {FieldLimits.CompanyPhoneMaxLength} characters long." },
-				{ "Address", $"Address must be at least {FieldLimits.CompanyAddressMaxLength} characters long." },
-				{ "DirectorName", $"DirectorName must be at least {FieldLimits.CompanyDirectorNameMaxLength} characters long." },
+				{ "Name", $"Name must be at most {FieldLimits.CompanyNameMaxLength} characters long." },
+				{ "Email", $"Email must be at most {FieldLimits.CompanyEmailMaxLength} characters long." },
+				{ "PhoneNumber", $"PhoneNumber must be at most {FieldLimits.CompanyPhoneMaxLength} characters long." },
+				{ "Address", $"Address must be at most {FieldLimits.CompanyAddressMaxLength} characters long." },
+				{ "DirectorName", $"DirectorName must be at most {FieldLimits.CompanyDirectorNameMaxLength} characters long." },
 			};
 
 			AssertErrors(jsonResponse, errors);

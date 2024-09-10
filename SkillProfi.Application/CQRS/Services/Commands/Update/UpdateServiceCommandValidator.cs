@@ -17,7 +17,7 @@ public sealed class UpdateServiceCommandValidator : AbstractValidator<UpdateServ
 			updateServiceCommand => !string.IsNullOrEmpty(updateServiceCommand.Title),
 			() => RuleFor(updateServiceCommand => updateServiceCommand.Title)
 				  .MaximumLength(FieldLimits.ServiceTitleMaxLength)
-				  .WithMessage($"Title must be at least {FieldLimits.ServiceTitleMaxLength} characters long.")
+				  .WithMessage($"Title must be at most {FieldLimits.ServiceTitleMaxLength} characters long.")
 		);
 
 		When
@@ -25,7 +25,7 @@ public sealed class UpdateServiceCommandValidator : AbstractValidator<UpdateServ
 			updateServiceCommand => !string.IsNullOrEmpty(updateServiceCommand.Title),
 			() => RuleFor(createServiceCommand => createServiceCommand.Description)
 				  .MaximumLength(FieldLimits.ServiceDescriptionMaxLength)
-				  .WithMessage($"Description must be at least {FieldLimits.ServiceDescriptionMaxLength} characters long.")
+				  .WithMessage($"Description must be at most {FieldLimits.ServiceDescriptionMaxLength} characters long.")
 		);
 	}
 }

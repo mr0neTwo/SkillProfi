@@ -22,9 +22,9 @@ public class SiteItemController(IMapper mapper) : BaseController
 	
 	[HttpPost]
 	[Authorize]
-	public async Task<ActionResult<int>> Create([FromBody] CreateSiteItemModel createSiteItemModel)
+	public async Task<ActionResult<int>> Create([FromBody] CreateSiteItemDto createSiteItemDto)
 	{
-		CreateSiteItemCommand command = mapper.Map<CreateSiteItemCommand>(createSiteItemModel);
+		CreateSiteItemCommand command = mapper.Map<CreateSiteItemCommand>(createSiteItemDto);
 		command.CreatedBy = UserId;
 		int clientRequestId = await Mediator.Send(command);
 
@@ -33,9 +33,9 @@ public class SiteItemController(IMapper mapper) : BaseController
 	
 	[HttpPut]
 	[Authorize]
-	public async Task<IActionResult> Update([FromBody] UpdateSiteItemModel updateSiteItemModel, CancellationToken cancellationToken)
+	public async Task<IActionResult> Update([FromBody] UpdateSiteItemDto updateSiteItemDto, CancellationToken cancellationToken)
 	{
-		UpdateSiteItemCommand command = mapper.Map<UpdateSiteItemCommand>(updateSiteItemModel);
+		UpdateSiteItemCommand command = mapper.Map<UpdateSiteItemCommand>(updateSiteItemDto);
 		command.UpdatedById = UserId;
 		await Mediator.Send(command, cancellationToken);
 

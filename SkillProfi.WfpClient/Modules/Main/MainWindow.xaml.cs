@@ -25,7 +25,7 @@ public partial class MainWindow : Window
 	{
 		try
 		{
-			var loginModel = new UserLoginModel
+			var loginModel = new UserLoginDto
 			{
 				Email = "admin@example.com",
 				Password = "123456"

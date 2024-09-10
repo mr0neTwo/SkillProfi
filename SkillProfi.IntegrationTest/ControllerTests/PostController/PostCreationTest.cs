@@ -19,7 +19,7 @@ public sealed class PostCreationTests(SkillProfiApplicationFactory<Program> fact
 		// Arrange
 		Post testPost = TestPostData.Post1;
 		
-		CreatePostModel request = new()
+		CreatePostDto request = new()
 		{
 			Title = testPost.Title, 
 			Description = testPost.Description
@@ -49,7 +49,7 @@ public sealed class PostCreationTests(SkillProfiApplicationFactory<Program> fact
 	public async Task CreatePost_FailedByEmptyFields()
 	{
 		// Arrange
-		CreatePostModel request = new();
+		CreatePostDto request = new();
 		
 		try
 		{
@@ -80,7 +80,7 @@ public sealed class PostCreationTests(SkillProfiApplicationFactory<Program> fact
 	public async Task CreatePost_FailedByOverLimitFields()
 	{
 		// Arrange
-		CreatePostModel request = new()
+		CreatePostDto request = new()
 		{
 			Title = new string('x', FieldLimits.PostTitleMaxLength + 1),  
 			Description = new string('x', FieldLimits.PostDescriptionMaxLength + 1)
@@ -99,8 +99,8 @@ public sealed class PostCreationTests(SkillProfiApplicationFactory<Program> fact
 			
 			string[,] errors = 
 			{
-				{ "Title", $"Title must be at least {FieldLimits.PostTitleMaxLength} characters long." },
-				{ "Description", $"Description must be at least {FieldLimits.PostDescriptionMaxLength} characters long." }
+				{ "Title", $"Title must be at most {FieldLimits.PostTitleMaxLength} characters long." },
+				{ "Description", $"Description must be at most {FieldLimits.PostDescriptionMaxLength} characters long." }
 			};
 
 			AssertErrors(jsonResponse, errors);

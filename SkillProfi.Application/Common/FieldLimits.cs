@@ -31,8 +31,10 @@ public static class FieldLimits
 	public const int CompanyAddressMaxLength = 100;
 	public const int CompanyDirectorNameMaxLength = 50;
 	
-	public const int MaxItemsPerPage = 50;
+	public const int SocialMediaIconNameMaxLength = 20;
+	public const int SocialMediaLinkMaxLength = 50;
 	
+	public const int MaxItemsPerPage = 50;
 	
 	public const long MinTimestamp = -62135596800;// 1 January 0001
 	public const long MaxTimestamp = 253402300799;// 31 December 9999 года

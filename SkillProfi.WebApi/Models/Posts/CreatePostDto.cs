@@ -4,7 +4,7 @@ using SkillProfi.Application.CQRS.Posts.Command.Create;
 
 namespace SkillProfi.WebApi.Models.Posts;
 
-public sealed class CreatePostModel : IMapWith<CreatePostCommand>
+public sealed class CreatePostDto : IMapWith<CreatePostCommand>
 {
 	public string Title { get; set; } = string.Empty;
 	public string Description { get; set; } = string.Empty;
@@ -12,8 +12,8 @@ public sealed class CreatePostModel : IMapWith<CreatePostCommand>
 
 	public void Mapping(Profile profile)
 	{
-		profile.CreateMap<CreatePostModel, CreatePostCommand>()
-			   .ForMember(command => command.Title, opt => opt.MapFrom(model => model.Title))
-			   .ForMember(command => command.Description, opt => opt.MapFrom(model => model.Description));
+		profile.CreateMap<CreatePostDto, CreatePostCommand>()
+			   .ForMember(command => command.Title, opt => opt.MapFrom(dto => dto.Title))
+			   .ForMember(command => command.Description, opt => opt.MapFrom(dto => dto.Description));
 	}
 }

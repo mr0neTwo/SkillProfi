@@ -11,20 +11,20 @@ public class CreateClientRequestCommandValidator : AbstractValidator<CreateClien
 			.NotEmpty()
 			.WithMessage("Client name is required.")
 			.MaximumLength(FieldLimits.ClientRequestNameMaxLength)
-			.WithMessage($"Client name must be at least {FieldLimits.ClientRequestNameMaxLength} characters long.");
+			.WithMessage($"Client name must be at most {FieldLimits.ClientRequestNameMaxLength} characters long.");
 		
 		RuleFor(createClientRequestCommand => createClientRequestCommand.ClientEmail)
 			.NotEmpty()
 			.WithMessage("Client email is required.")
 			.MaximumLength(FieldLimits.ClientRequestEmailMaxLength)
-			.WithMessage($"Client email must be at least {FieldLimits.ClientRequestEmailMaxLength} characters long.");
+			.WithMessage($"Client email must be at most {FieldLimits.ClientRequestEmailMaxLength} characters long.");
 
 		
 		RuleFor(createClientRequestCommand => createClientRequestCommand.Message)
 			.NotEmpty()
 			.WithMessage("Message is required.")
 			.MaximumLength(FieldLimits.ClientRequestMessageMaxLength)
-			.WithMessage($"Message must be at least {FieldLimits.ClientRequestMessageMaxLength} characters long.");
+			.WithMessage($"Message must be at most {FieldLimits.ClientRequestMessageMaxLength} characters long.");
 		
 		RuleFor(createClientRequestCommand => createClientRequestCommand.Status)
 			.IsInEnum()

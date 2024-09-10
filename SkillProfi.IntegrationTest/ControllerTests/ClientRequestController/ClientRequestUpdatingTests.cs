@@ -21,7 +21,7 @@ public sealed class ClientRequestUpdatingTests(SkillProfiApplicationFactory<Prog
 
 		await AddEntitiesAsync(clientRequest);
 		
-		UpdateClientRequestModel request = new()
+		UpdateClientRequestDto request = new()
 		{
 			Id = clientRequest.Id,
 			Status = ClientRequestStatus.Done
@@ -56,7 +56,7 @@ public sealed class ClientRequestUpdatingTests(SkillProfiApplicationFactory<Prog
 
 		int maxStatusValue = Enum.GetValues(typeof(ClientRequestStatus)).Length;
 
-		UpdateClientRequestModel request = new()
+		UpdateClientRequestDto request = new()
 		{
 			Id = clientRequest.Id, 
 			Status = (ClientRequestStatus)maxStatusValue + 1

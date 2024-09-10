@@ -22,7 +22,7 @@ public sealed class ServiceUpdatingTests(SkillProfiApplicationFactory<Program> f
 
 		await AddEntitiesAsync(service);
 		
-		UpdateServiceModel request = new()
+		UpdateServiceDto request = new()
 		{
 			Id = service.Id,
 			Title = "Updated Title",
@@ -56,7 +56,7 @@ public sealed class ServiceUpdatingTests(SkillProfiApplicationFactory<Program> f
 		Service service = TestServiceData.TestService1;
 		await AddEntitiesAsync(service);
 		
-		UpdateServiceModel request = new()
+		UpdateServiceDto request = new()
 		{
 			Id = service.Id,
 			Title = new string('x', FieldLimits.ServiceTitleMaxLength + 1),  
@@ -76,8 +76,8 @@ public sealed class ServiceUpdatingTests(SkillProfiApplicationFactory<Program> f
 
 			string[,] errors = 
 			{
-				{ "Title", $"Title must be at least {FieldLimits.ServiceTitleMaxLength} characters long." },
-				{ "Description", $"Description must be at least {FieldLimits.ServiceDescriptionMaxLength} characters long." }
+				{ "Title", $"Title must be at most {FieldLimits.ServiceTitleMaxLength} characters long." },
+				{ "Description", $"Description must be at most {FieldLimits.ServiceDescriptionMaxLength} characters long." }
 			};
 
 			AssertErrors(jsonResponse, errors);

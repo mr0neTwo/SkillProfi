@@ -12,12 +12,12 @@ public sealed class CreateServiceCommandValidator : AbstractValidator<CreateServ
 			.NotEmpty()
 			.WithMessage("Title is required.")
 			.MaximumLength(FieldLimits.ServiceTitleMaxLength)
-			.WithMessage($"Title must be at least {FieldLimits.ServiceTitleMaxLength} characters long.");
+			.WithMessage($"Title must be at most {FieldLimits.ServiceTitleMaxLength} characters long.");
 
 		RuleFor(createServiceCommand => createServiceCommand.Description)
 			.NotEmpty()
 			.WithMessage("Description is required.")
 			.MaximumLength(FieldLimits.ServiceDescriptionMaxLength)
-			.WithMessage($"Description must be at least {FieldLimits.ServiceDescriptionMaxLength} characters long.");
+			.WithMessage($"Description must be at most {FieldLimits.ServiceDescriptionMaxLength} characters long.");
 	}
 }

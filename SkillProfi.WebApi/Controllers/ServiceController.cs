@@ -21,9 +21,9 @@ public class ServiceController(IMapper mapper) : BaseController
 	
 	[HttpPost]
 	[Authorize]
-	public async Task<ActionResult<int>> Create([FromBody] CreateServiceModel createServiceModel)
+	public async Task<ActionResult<int>> Create([FromBody] CreateServiceDto createServiceDto)
 	{
-		CreateServiceCommand command = mapper.Map<CreateServiceCommand>(createServiceModel);
+		CreateServiceCommand command = mapper.Map<CreateServiceCommand>(createServiceDto);
 		command.CreatedBy = UserId;
 		int serviceId = await Mediator.Send(command);
 
@@ -32,9 +32,9 @@ public class ServiceController(IMapper mapper) : BaseController
 	
 	[HttpPut]
 	[Authorize]
-	public async Task<IActionResult> Update([FromBody] UpdateServiceModel updateServiceModel)
+	public async Task<IActionResult> Update([FromBody] UpdateServiceDto updateServiceDto)
 	{
-		UpdateServiceCommand command = mapper.Map<UpdateServiceCommand>(updateServiceModel);
+		UpdateServiceCommand command = mapper.Map<UpdateServiceCommand>(updateServiceDto);
 		command.UpdatedBy = UserId;
 		await Mediator.Send(command);
 

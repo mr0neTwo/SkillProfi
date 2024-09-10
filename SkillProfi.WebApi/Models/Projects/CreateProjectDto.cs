@@ -4,7 +4,7 @@ using SkillProfi.Application.CQRS.Projects.Command.Create;
 
 namespace SkillProfi.WebApi.Models.Projects;
 
-public sealed class CreateProjectModel : IMapWith<CreateProjectCommand>
+public sealed class CreateProjectDto : IMapWith<CreateProjectCommand>
 {
 	public string Title { get; set; } = string.Empty;
 	public string Description { get; set; } = string.Empty;
@@ -12,8 +12,8 @@ public sealed class CreateProjectModel : IMapWith<CreateProjectCommand>
 
 	public void Mapping(Profile profile)
 	{
-		profile.CreateMap<CreateProjectModel, CreateProjectCommand>()
-			   .ForMember(command => command.Title, opt => opt.MapFrom(model => model.Title))
-			   .ForMember(command => command.Description, opt => opt.MapFrom(model => model.Description));
+		profile.CreateMap<CreateProjectDto, CreateProjectCommand>()
+			   .ForMember(command => command.Title, opt => opt.MapFrom(dto => dto.Title))
+			   .ForMember(command => command.Description, opt => opt.MapFrom(dto => dto.Description));
 	}
 }

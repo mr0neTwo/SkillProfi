@@ -11,6 +11,6 @@ public class UpdateSiteItemCommandValidator : AbstractValidator<UpdateSiteItemCo
 			.NotEmpty()
 			.WithMessage("Title is required.")
 			.MaximumLength(FieldLimits.SiteItemTitleMaxLength)
-			.WithMessage($"Title must be at least {FieldLimits.SiteItemTitleMaxLength} characters long.");
+			.WithMessage($"Title must be at most {FieldLimits.SiteItemTitleMaxLength} characters long.");
 	}
 }

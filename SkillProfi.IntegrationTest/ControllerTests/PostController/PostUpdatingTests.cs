@@ -22,7 +22,7 @@ public sealed class PostUpdatingTests(SkillProfiApplicationFactory<Program> fact
 
 		await AddEntitiesAsync(post);
 		
-		UpdatePostModel request = new()
+		UpdatePostDto request = new()
 		{
 			Id = post.Id,
 			Title = "Updated Title",
@@ -56,7 +56,7 @@ public sealed class PostUpdatingTests(SkillProfiApplicationFactory<Program> fact
 		Post post = TestPostData.Post1;
 		await AddEntitiesAsync(post);
 		
-		UpdatePostModel request = new()
+		UpdatePostDto request = new()
 		{
 			Id = post.Id,
 			Title = new string('x', FieldLimits.PostTitleMaxLength + 1),  
@@ -76,8 +76,8 @@ public sealed class PostUpdatingTests(SkillProfiApplicationFactory<Program> fact
 
 			string[,] errors = 
 			{
-				{ "Title", $"Title must be at least {FieldLimits.PostTitleMaxLength} characters long." },
-				{ "Description", $"Description must be at least {FieldLimits.PostDescriptionMaxLength} characters long." }
+				{ "Title", $"Title must be at most {FieldLimits.PostTitleMaxLength} characters long." },
+				{ "Description", $"Description must be at most {FieldLimits.PostDescriptionMaxLength} characters long." }
 			};
 
 			AssertErrors(jsonResponse, errors);

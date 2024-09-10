@@ -18,13 +18,13 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
 			.NotEmpty()
 			.WithMessage("Name is required.")
 			.MaximumLength(FieldLimits.UserNameMaxLength)
-			.WithMessage($"Name must be at least {FieldLimits.UserNameMaxLength} characters long.");
+			.WithMessage($"Name must be at most {FieldLimits.UserNameMaxLength} characters long.");
 		
 		RuleFor(createUserCommand => createUserCommand.Email)
 			.NotEmpty()
 			.WithMessage("Email is required.")
 			.MaximumLength(FieldLimits.UserEmailMaxLength)
-			.WithMessage($"Email must be at least {FieldLimits.UserEmailMaxLength} characters long.")
+			.WithMessage($"Email must be at most {FieldLimits.UserEmailMaxLength} characters long.")
 			.MustAsync(IsEmailUnique)
 			.WithMessage("Email already exists.");
 		
@@ -32,7 +32,7 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
 			.NotEmpty()
 			.WithMessage("Password is required.")
 			.MinimumLength(FieldLimits.UserPasswordMinLength)
-			.WithMessage($"Password must be at least {FieldLimits.UserPasswordMinLength} characters long.")
+			.WithMessage($"Password must be at most {FieldLimits.UserPasswordMinLength} characters long.")
 			.Matches(@"[A-Z]")
 			.WithMessage("Password must contain at least one uppercase letter.")
 			.Matches(@"[a-z]")

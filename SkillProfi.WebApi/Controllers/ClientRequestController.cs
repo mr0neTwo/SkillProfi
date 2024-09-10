@@ -33,9 +33,9 @@ public class ClientRequestController(IMapper mapper) : BaseController
 	}
 	
 	[HttpPost]
-	public async Task<ActionResult<int>> Create([FromBody] CreateClientRequestModel createClientRequestModel, CancellationToken cancellationToken)
+	public async Task<ActionResult<int>> Create([FromBody] CreateClientRequestDto createClientRequestDto, CancellationToken cancellationToken)
 	{
-		CreateClientRequestCommand command = mapper.Map<CreateClientRequestCommand>(createClientRequestModel);
+		CreateClientRequestCommand command = mapper.Map<CreateClientRequestCommand>(createClientRequestDto);
 		int clientRequestId = await Mediator.Send(command, cancellationToken);
 
 		return Ok(clientRequestId);
@@ -43,9 +43,9 @@ public class ClientRequestController(IMapper mapper) : BaseController
 	
 	[HttpPut]
 	[Authorize]
-	public async Task<IActionResult> Update([FromBody] UpdateClientRequestModel updateClientRequestModel, CancellationToken cancellationToken)
+	public async Task<IActionResult> Update([FromBody] UpdateClientRequestDto updateClientRequestDto, CancellationToken cancellationToken)
 	{
-		UpdateClientRequestCommand command = mapper.Map<UpdateClientRequestCommand>(updateClientRequestModel);
+		UpdateClientRequestCommand command = mapper.Map<UpdateClientRequestCommand>(updateClientRequestDto);
 		command.UpdatedBy = UserId;
 		await Mediator.Send(command, cancellationToken);
 

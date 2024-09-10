@@ -12,13 +12,13 @@ public class CreateSiteItemValidator : AbstractValidator<CreateSiteItemCommand>
 			.NotEmpty()
 			.WithMessage("Key is required.")
 			.MaximumLength(FieldLimits.SiteItemKexMaxLength)
-			.WithMessage($"Key must be at least {FieldLimits.SiteItemKexMaxLength} characters long.");
+			.WithMessage($"Key must be at most {FieldLimits.SiteItemKexMaxLength} characters long.");
 		
 		RuleFor(createSiteItemCommand => createSiteItemCommand.Title)
 			.NotNull()
 			.NotEmpty()
 			.WithMessage("Title is required.")
 			.MaximumLength(FieldLimits.SiteItemTitleMaxLength)
-			.WithMessage($"Title must be at least {FieldLimits.SiteItemTitleMaxLength} characters long.");
+			.WithMessage($"Title must be at most {FieldLimits.SiteItemTitleMaxLength} characters long.");
 	}
 }

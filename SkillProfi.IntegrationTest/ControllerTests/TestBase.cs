@@ -57,6 +57,14 @@ public abstract class TestBase<TEntity> : IClassFixture<SkillProfiApplicationFac
 
 		return await appContext.Set<TEntity>().FindAsync(entityId);
 	}
+	
+	protected async Task<List<TEntity>> GetAllEntitiesAsync()
+	{
+		using var serviceScope = _factory.Services.CreateScope();
+		var appContext = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+		return await appContext.Set<TEntity>().ToListAsync();
+	}
 
 	protected void AssertErrors(dynamic jsonResponse, string[,] errors)
 	{

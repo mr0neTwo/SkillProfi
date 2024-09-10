@@ -10,9 +10,9 @@ namespace SkillProfi.WebApi.Controllers;
 public sealed class AuthController(IMapper mapper, JwtSettings jwtSettings, IAuthService authService) : BaseController
 {
 	[HttpPost]
-	public async Task<IActionResult> Login([FromBody] UserLoginModel userLoginModel, CancellationToken cancellationToken)
+	public async Task<IActionResult> Login([FromBody] UserLoginDto userLoginDto, CancellationToken cancellationToken)
 	{
-		AuthenticationRequest authenticationRequest = mapper.Map<AuthenticationRequest>(userLoginModel);
+		AuthenticationRequest authenticationRequest = mapper.Map<AuthenticationRequest>(userLoginDto);
 		AuthResponse authResponse = await authService.Authenticate(authenticationRequest, cancellationToken);
 
 		if (authResponse.Success)

@@ -23,13 +23,13 @@ public class PostController(IMapper mapper, IImageStore imageStore) : BaseContro
 	
 	[HttpPost]
 	[Authorize]
-	public async Task<ActionResult<int>> Create([FromBody] CreatePostModel createPostModel)
+	public async Task<ActionResult<int>> Create([FromBody] CreatePostDto createPostDto)
 	{
-		CreatePostCommand command = mapper.Map<CreatePostCommand>(createPostModel);
+		CreatePostCommand command = mapper.Map<CreatePostCommand>(createPostDto);
 		
-		if (!string.IsNullOrEmpty(createPostModel.ImageBase64))
+		if (!string.IsNullOrEmpty(createPostDto.ImageBase64))
 		{
-			command.ImageUrl = await imageStore.SaveImageAsync(createPostModel.ImageBase64);
+			command.ImageUrl = await imageStore.SaveImageAsync(createPostDto.ImageBase64);
 		}
 		
 		command.CreatedBy = UserId;
@@ -40,13 +40,13 @@ public class PostController(IMapper mapper, IImageStore imageStore) : BaseContro
 	
 	[HttpPut]
 	[Authorize]
-	public async Task<IActionResult> Update([FromBody] UpdatePostModel updatePostModel)
+	public async Task<IActionResult> Update([FromBody] UpdatePostDto updatePostDto)
 	{
-		UpdatePostCommand updatePostCommand = mapper.Map<UpdatePostCommand>(updatePostModel);
+		UpdatePostCommand updatePostCommand = mapper.Map<UpdatePostCommand>(updatePostDto);
 
-		if (!string.IsNullOrEmpty(updatePostModel.ImageBase64))
+		if (!string.IsNullOrEmpty(updatePostDto.ImageBase64))
 		{
-			updatePostCommand.ImageUrl = await imageStore.SaveImageAsync(updatePostModel.ImageBase64);
+			updatePostCommand.ImageUrl = await imageStore.SaveImageAsync(updatePostDto.ImageBase64);
 			GetPostImageUrlQuery postImageUrlQuery = new() { Id = updatePostCommand.Id };
 			string? oldImageUrl = await Mediator.Send(postImageUrlQuery);
 

@@ -11,20 +11,20 @@ public sealed class CreatePostCommandValidator : AbstractValidator<CreatePostCom
 			.NotEmpty()
 			.WithMessage("Title is required.")
 			.MaximumLength(FieldLimits.PostTitleMaxLength)
-			.WithMessage($"Title must be at least {FieldLimits.PostTitleMaxLength} characters long.");
+			.WithMessage($"Title must be at most {FieldLimits.PostTitleMaxLength} characters long.");
 		
 		When
 		(
 			createPostCommand => !string.IsNullOrEmpty(createPostCommand.ImageUrl),
 			() => RuleFor(createPostCommand => createPostCommand.ImageUrl)
 				  .MaximumLength(FieldLimits.PostImageUrlMaxLength)
-				  .WithMessage($"ImageUrl must be at least {FieldLimits.PostImageUrlMaxLength} characters long.")
+				  .WithMessage($"ImageUrl must be at most {FieldLimits.PostImageUrlMaxLength} characters long.")
 		);
 
 		RuleFor(createPostCommand => createPostCommand.Description)
 			.NotEmpty()
 			.WithMessage("Description is required.")
 			.MaximumLength(FieldLimits.PostDescriptionMaxLength)
-			.WithMessage($"Description must be at least {FieldLimits.PostDescriptionMaxLength} characters long.");
+			.WithMessage($"Description must be at most {FieldLimits.PostDescriptionMaxLength} characters long.");
 	}
 }

@@ -11,20 +11,20 @@ public sealed class CreateProjectCommandValidator : AbstractValidator<CreateProj
 			.NotEmpty()
 			.WithMessage("Title is required.")
 			.MaximumLength(FieldLimits.ProjectTitleMaxLength)
-			.WithMessage($"Title must be at least {FieldLimits.ProjectTitleMaxLength} characters long.");
+			.WithMessage($"Title must be at most {FieldLimits.ProjectTitleMaxLength} characters long.");
 		
 		When
 		(
 			updateProjectCommand => !string.IsNullOrEmpty(updateProjectCommand.ImageUrl),
 			() => RuleFor(updateProjectCommand => updateProjectCommand.ImageUrl)
 				  .MaximumLength(FieldLimits.ProjectImageUrlMaxLength)
-				  .WithMessage($"ImageUrl must be at least {FieldLimits.ProjectImageUrlMaxLength} characters long.")
+				  .WithMessage($"ImageUrl must be at most {FieldLimits.ProjectImageUrlMaxLength} characters long.")
 		);
 
 		RuleFor(createProjectCommand => createProjectCommand.Description)
 			.NotEmpty()
 			.WithMessage("Description is required.")
 			.MaximumLength(FieldLimits.ProjectDescriptionMaxLength)
-			.WithMessage($"Description must be at least {FieldLimits.ProjectDescriptionMaxLength} characters long.");
+			.WithMessage($"Description must be at most {FieldLimits.ProjectDescriptionMaxLength} characters long.");
 	}
 }

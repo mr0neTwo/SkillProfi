@@ -12,7 +12,7 @@ public sealed class UpdateCompanyCommandValidator : AbstractValidator<UpdateComp
 			updateCompanyCommand => !string.IsNullOrEmpty(updateCompanyCommand.Name),
 			() => RuleFor(updateProjectCommand => updateProjectCommand.Name)
 				  .MaximumLength(FieldLimits.CompanyNameMaxLength)
-				  .WithMessage($"Name must be at least {FieldLimits.CompanyNameMaxLength} characters long.")
+				  .WithMessage($"Name must be at most {FieldLimits.CompanyNameMaxLength} characters long.")
 		);
 		
 		When
@@ -20,7 +20,7 @@ public sealed class UpdateCompanyCommandValidator : AbstractValidator<UpdateComp
 			updateCompanyCommand => !string.IsNullOrEmpty(updateCompanyCommand.Email),
 			() => RuleFor(updateCompanyCommand => updateCompanyCommand.Email)
 				  .MaximumLength(FieldLimits.CompanyEmailMaxLength)
-				  .WithMessage($"Email must be at least {FieldLimits.CompanyEmailMaxLength} characters long.")
+				  .WithMessage($"Email must be at most {FieldLimits.CompanyEmailMaxLength} characters long.")
 		);
 
 		When
@@ -28,7 +28,7 @@ public sealed class UpdateCompanyCommandValidator : AbstractValidator<UpdateComp
 			updateCompanyCommand => !string.IsNullOrEmpty(updateCompanyCommand.PhoneNumber),
 			() => RuleFor(updateCompanyCommand => updateCompanyCommand.PhoneNumber)
 				  .MaximumLength(FieldLimits.CompanyPhoneMaxLength)
-				  .WithMessage($"PhoneNumber must be at least {FieldLimits.CompanyPhoneMaxLength} characters long.")
+				  .WithMessage($"PhoneNumber must be at most {FieldLimits.CompanyPhoneMaxLength} characters long.")
 		);
 		
 		When
@@ -36,7 +36,7 @@ public sealed class UpdateCompanyCommandValidator : AbstractValidator<UpdateComp
 			updateCompanyCommand => !string.IsNullOrEmpty(updateCompanyCommand.Address),
 			() => RuleFor(updateCompanyCommand => updateCompanyCommand.Address)
 				  .MaximumLength(FieldLimits.CompanyAddressMaxLength)
-				  .WithMessage($"Address must be at least {FieldLimits.CompanyAddressMaxLength} characters long.")
+				  .WithMessage($"Address must be at most {FieldLimits.CompanyAddressMaxLength} characters long.")
 		);
 		
 		When
@@ -44,7 +44,7 @@ public sealed class UpdateCompanyCommandValidator : AbstractValidator<UpdateComp
 			updateCompanyCommand => !string.IsNullOrEmpty(updateCompanyCommand.DirectorName),
 			() => RuleFor(updateCompanyCommand => updateCompanyCommand.DirectorName)
 				  .MaximumLength(FieldLimits.CompanyDirectorNameMaxLength)
-				  .WithMessage($"DirectorName must be at least {FieldLimits.CompanyDirectorNameMaxLength} characters long.")
+				  .WithMessage($"DirectorName must be at most {FieldLimits.CompanyDirectorNameMaxLength} characters long.")
 		);
 	}
 }

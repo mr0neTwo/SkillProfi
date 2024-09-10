@@ -16,7 +16,7 @@ public sealed class UpdatePostCommandValidator : AbstractValidator<UpdatePostCom
 			updatePostCommand => !string.IsNullOrEmpty(updatePostCommand.Title),
 			() => RuleFor(updatePostCommand => updatePostCommand.Title)
 				  .MaximumLength(FieldLimits.PostTitleMaxLength)
-				  .WithMessage($"Title must be at least {FieldLimits.PostTitleMaxLength} characters long.")
+				  .WithMessage($"Title must be at most {FieldLimits.PostTitleMaxLength} characters long.")
 		);
 		
 		When
@@ -24,7 +24,7 @@ public sealed class UpdatePostCommandValidator : AbstractValidator<UpdatePostCom
 			updatePostCommand => !string.IsNullOrEmpty(updatePostCommand.ImageUrl),
 			() => RuleFor(updatePostCommand => updatePostCommand.ImageUrl)
 				  .MaximumLength(FieldLimits.PostImageUrlMaxLength)
-				  .WithMessage($"ImageUrl must be at least {FieldLimits.PostImageUrlMaxLength} characters long.")
+				  .WithMessage($"ImageUrl must be at most {FieldLimits.PostImageUrlMaxLength} characters long.")
 		);
 
 		When
@@ -32,7 +32,7 @@ public sealed class UpdatePostCommandValidator : AbstractValidator<UpdatePostCom
 			updatePostCommand => !string.IsNullOrEmpty(updatePostCommand.Title),
 			() => RuleFor(updatePostCommand => updatePostCommand.Description)
 				  .MaximumLength(FieldLimits.PostDescriptionMaxLength)
-				  .WithMessage($"Description must be at least {FieldLimits.PostDescriptionMaxLength} characters long.")
+				  .WithMessage($"Description must be at most {FieldLimits.PostDescriptionMaxLength} characters long.")
 		);
 	}
 }
