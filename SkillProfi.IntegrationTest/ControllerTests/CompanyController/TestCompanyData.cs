@@ -2,7 +2,7 @@
 
 namespace SkillProfi.IntegrationTest.ControllerTests.CompanyController;
 
-public class TestCompanyData
+public static class TestCompanyData
 {
 	public static Company Company => new Company()
 	{
@@ -10,6 +10,7 @@ public class TestCompanyData
 		Email = "skillprofi@example.com",
 		PhoneNumber = "123456789",
 		Address = "Москва, ул. Московская 287, оф. 212",
-		DirectorName = "Атос де Ля Фер"
+		DirectorName = "Атос де Ля Фер",
+		MapLink = "www.google.map.com"
 	};
 }

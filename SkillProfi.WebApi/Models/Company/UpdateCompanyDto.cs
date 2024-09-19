@@ -11,6 +11,7 @@ public sealed class UpdateCompanyDto : IMapWith<UpdateCompanyCommand>
 	public string? PhoneNumber { get; set; }
 	public string? Address { get; set; }
 	public string? DirectorName { get; set; }
+	public string? MapLink { get; set; }
 	
 	public void Mapping(Profile profile)
 	{
@@ -19,6 +20,7 @@ public sealed class UpdateCompanyDto : IMapWith<UpdateCompanyCommand>
 			   .ForMember(command => command.Email, opt => opt.MapFrom(dto => dto.Email))
 			   .ForMember(command => command.PhoneNumber, opt => opt.MapFrom(dto => dto.PhoneNumber))
 			   .ForMember(command => command.Address, opt => opt.MapFrom(dto => dto.Address))
-			   .ForMember(command => command.DirectorName, opt => opt.MapFrom(dto => dto.DirectorName));
+			   .ForMember(command => command.DirectorName, opt => opt.MapFrom(dto => dto.DirectorName))
+			   .ForMember(command => command.MapLink, opt => opt.MapFrom(dto => dto.MapLink));
 	}
 }

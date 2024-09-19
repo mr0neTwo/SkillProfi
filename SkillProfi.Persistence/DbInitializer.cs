@@ -27,6 +27,7 @@ public static class DbInitializer
 		await dbContext.Services.AddRangeAsync(DefaultContent.Services());
 		await dbContext.Projects.AddRangeAsync(DefaultContent.Projects());
 		await dbContext.Posts.AddRangeAsync(DefaultContent.Posts());
+		await dbContext.SocialMedias.AddRangeAsync(DefaultContent.SocialMedias());
 		
 		await dbContext.SaveChangesAsync();
 	}

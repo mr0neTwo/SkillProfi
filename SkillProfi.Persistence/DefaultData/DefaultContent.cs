@@ -430,4 +430,55 @@ public static class DefaultContent
         
         return posts;
     }
+
+    public static SocialMedia[] SocialMedias()
+    {
+        SocialMedia[] socialMedias = 
+        [
+            new SocialMedia
+            {
+                CreationDate = DateTime.Now,
+                IconName = "FACEBOOK",
+                Link = "https://facebook.com",
+            },
+            new SocialMedia
+            {
+                CreationDate = DateTime.Now,
+                IconName = "VK",
+                Link = "https://vk.ru",
+            },
+            new SocialMedia
+            {
+                CreationDate = DateTime.Now,
+                IconName = "TWITTER",
+                Link = "https://x.com",
+            },
+            new SocialMedia
+            {
+                CreationDate = DateTime.Now,
+                IconName = "INSTAGRAM",
+                Link = "https://instagram.com",
+            },
+            new SocialMedia
+            {
+                CreationDate = DateTime.Now,
+                IconName = "YOUTUBE",
+                Link = "https://youtube.com",
+            },
+            new SocialMedia
+            {
+                CreationDate = DateTime.Now,
+                IconName = "WHATSAPP",
+                Link = "https://web.whatsapp.com",
+            },
+            new SocialMedia
+            {
+                CreationDate = DateTime.Now,
+                IconName = "MESSAGES",
+                Link = "https://web.telegram.org/"
+            }
+        ];
+
+        return socialMedias;
+    }
 }

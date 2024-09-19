@@ -28,7 +28,8 @@ public sealed class CompanyUpdatingTests(SkillProfiApplicationFactory<Program> f
 			Email = "Updated email", 
 			PhoneNumber = "Updated number", 
 			Address = "Updated address", 
-			DirectorName = "Updated Director"
+			DirectorName = "Updated Director",
+			MapLink = "Updated Map Link",
 		};
 		
 		try

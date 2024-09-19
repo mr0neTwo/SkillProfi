@@ -40,6 +40,11 @@ public sealed class UpdateCompanyCommandHandler(IAppContext appContext) : IReque
 		{
 			company.DirectorName = request.DirectorName;
 		}
+		
+		if (request.MapLink != null)
+		{
+			company.MapLink = request.MapLink;
+		}
 
 		company.UpdatingDate = DateTime.Now;
 		company.UpdatedById = request.UpdatedById;

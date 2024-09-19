@@ -9,5 +9,6 @@ public sealed class UpdateCompanyCommand : IRequest<Unit>
 	public string? PhoneNumber { get; set; }
 	public string? Address { get; set; }
 	public string? DirectorName { get; set; }
+	public string? MapLink { get; set; }
 	public int UpdatedById { get; set; }
 }

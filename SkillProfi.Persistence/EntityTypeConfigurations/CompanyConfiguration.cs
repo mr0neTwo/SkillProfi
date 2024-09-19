@@ -17,5 +17,6 @@ public sealed class CompanyConfiguration : IEntityTypeConfiguration<Company>
 		builder.Property(company => company.PhoneNumber).HasMaxLength(FieldLimits.CompanyPhoneMaxLength).IsRequired();
 		builder.Property(company => company.Address).HasMaxLength(FieldLimits.CompanyAddressMaxLength).IsRequired();
 		builder.Property(company => company.DirectorName).HasMaxLength(FieldLimits.CompanyDirectorNameMaxLength).IsRequired();
+		builder.Property(company => company.MapLink).HasMaxLength(FieldLimits.CompanyMapLinkMaxLength).IsRequired(false);
 	}
 }

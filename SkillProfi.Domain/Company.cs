@@ -7,4 +7,5 @@ public sealed class Company : Entity
 	public string PhoneNumber { get; set; } = string.Empty;
 	public string Address { get; set; } = string.Empty;
 	public string DirectorName { get; set; } = string.Empty;
+	public string MapLink { get; set; } = string.Empty;
 }

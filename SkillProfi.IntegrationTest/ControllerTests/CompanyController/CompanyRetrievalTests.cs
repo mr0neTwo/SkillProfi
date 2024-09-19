@@ -32,6 +32,7 @@ public sealed class CompanyRetrievalTests(SkillProfiApplicationFactory<Program> 
 			companyDto.PhoneNumber.Should().Be(company.PhoneNumber);
 			companyDto.Address.Should().Be(company.Address);
 			companyDto.DirectorName.Should().Be(company.DirectorName);
+			companyDto.MapLink.Should().Be(company.MapLink);
 		}
 		finally
 		{

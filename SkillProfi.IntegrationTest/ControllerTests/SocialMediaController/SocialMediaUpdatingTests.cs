@@ -95,8 +95,6 @@ public sealed class SocialMediaUpdatingTests(SkillProfiApplicationFactory<Progra
 		// Arrange
 		SocialMedia socialMedia = TestSocialMediaData.SocialMedia1;
 
-		await AddEntitiesAsync(socialMedia);
-
 		List<SocialMediaDto> request = 
 		[
 			new SocialMediaDto()
@@ -110,21 +108,22 @@ public sealed class SocialMediaUpdatingTests(SkillProfiApplicationFactory<Progra
 				Link = TestSocialMediaData.SocialMedia3.Link
 			}
 		];
-		
+
+		await AddEntitiesAsync(socialMedia);
+
 		try
 		{
 			// Act
 			HttpResponseMessage response = await Client.PutAsJsonAsync("api/SocialMedia/UpdateAll", request);
+			request.Reverse();
 			
-			string responseContent = await response.Content.ReadAsStringAsync();
-			dynamic? jsonResponse = JsonConvert.DeserializeObject<dynamic>(responseContent);
-
 			// Assert
 			response.EnsureSuccessStatusCode();
 			
 			List<SocialMedia> updatedSocialMedia = await GetAllEntitiesAsync();
 
 			updatedSocialMedia.Should().NotBeNull();
+			updatedSocialMedia.Count.Should().Be(request.Count);
 
 			for (int i = 0; i < updatedSocialMedia.Count; i++)
 			{

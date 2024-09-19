@@ -46,5 +46,13 @@ public sealed class UpdateCompanyCommandValidator : AbstractValidator<UpdateComp
 				  .MaximumLength(FieldLimits.CompanyDirectorNameMaxLength)
 				  .WithMessage($"DirectorName must be at most {FieldLimits.CompanyDirectorNameMaxLength} characters long.")
 		);
+		
+		When
+		(
+			updateCompanyCommand => !string.IsNullOrEmpty(updateCompanyCommand.MapLink),
+			() => RuleFor(updateCompanyCommand => updateCompanyCommand.MapLink)
+				  .MaximumLength(FieldLimits.CompanyMapLinkMaxLength)
+				  .WithMessage($"MapLink must be at most {FieldLimits.CompanyMapLinkMaxLength} characters long.")
+		);
 	}
 }

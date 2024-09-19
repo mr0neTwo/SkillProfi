@@ -30,6 +30,7 @@ public static class FieldLimits
 	public const int CompanyPhoneMaxLength = 20;
 	public const int CompanyAddressMaxLength = 100;
 	public const int CompanyDirectorNameMaxLength = 50;
+	public const int CompanyMapLinkMaxLength = 300;
 	
 	public const int SocialMediaIconNameMaxLength = 20;
 	public const int SocialMediaLinkMaxLength = 50;
