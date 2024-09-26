@@ -18,10 +18,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillProfi.WebApi", "SkillP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillProfi.IntegrationTest", "SkillProfi.IntegrationTest\SkillProfi.IntegrationTest.csproj", "{A9020616-AC9A-4546-B7A3-5FB32C8AA67F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WfpClient", "WfpClient", "{DB9D4A13-6A87-40A1-BF7A-FA69140B34AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillProfi.WfpClient", "SkillProfi.WfpClient\SkillProfi.WfpClient.csproj", "{51FD1815-8D42-47D0-9B53-3F242B2EF401}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,7 +29,6 @@ Global
 		{D8B4FE92-D64F-4B0B-BF6F-A3EB13E32E0F} = {F7B5B0DC-2CC8-415D-8310-351550036446}
 		{754436A0-F640-44C1-8E78-F36F0F97B3E9} = {94FF1D7F-3BE1-4A4C-AC17-E171E947E20A}
 		{A9020616-AC9A-4546-B7A3-5FB32C8AA67F} = {83ABD56B-C7E5-4F1C-80A9-CA2A0BA130CC}
-		{51FD1815-8D42-47D0-9B53-3F242B2EF401} = {DB9D4A13-6A87-40A1-BF7A-FA69140B34AF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{211515D4-65E2-4BBC-941E-7F2A2C127898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -56,9 +51,5 @@ Global
 		{A9020616-AC9A-4546-B7A3-5FB32C8AA67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9020616-AC9A-4546-B7A3-5FB32C8AA67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9020616-AC9A-4546-B7A3-5FB32C8AA67F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51FD1815-8D42-47D0-9B53-3F242B2EF401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51FD1815-8D42-47D0-9B53-3F242B2EF401}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51FD1815-8D42-47D0-9B53-3F242B2EF401}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51FD1815-8D42-47D0-9B53-3F242B2EF401}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
