@@ -28,6 +28,11 @@ public static class DbInitializer
 		await dbContext.Projects.AddRangeAsync(DefaultContent.Projects());
 		await dbContext.Posts.AddRangeAsync(DefaultContent.Posts());
 		await dbContext.SocialMedias.AddRangeAsync(DefaultContent.SocialMedias());
+
+		for (int i = 0; i < 10; i++)
+		{
+			await dbContext.Services.AddRangeAsync(DefaultContent.Services());
+		}
 		
 		await dbContext.SaveChangesAsync();
 	}

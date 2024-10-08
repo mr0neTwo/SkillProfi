@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using SkillProfi.Application.CQRS.SiteItems.Commands.Create;
 using SkillProfi.Application.CQRS.SiteItems.Commands.Delete;
 using SkillProfi.Application.CQRS.SiteItems.Commands.Update;
+using SkillProfi.Application.CQRS.SiteItems.Commands.UpdateAll;
 using SkillProfi.Application.CQRS.SiteItems.Queries.Get;
+using SkillProfi.Application.CQRS.SiteItems.Queries.GetAll;
 using SkillProfi.WebApi.Models.SiteItem;
 
 namespace SkillProfi.WebApi.Controllers;
@@ -18,6 +20,16 @@ public class SiteItemController(IMapper mapper) : BaseController
 		SiteItemDto siteItemDto = await Mediator.Send(query, cancellationToken);
 
 		return Ok(siteItemDto);
+	}
+
+	[HttpGet]
+	[Authorize]
+	public async Task<ActionResult<Dictionary<string, string>>> GetAll(CancellationToken cancellationToken)
+	{
+		GetAllSiteItemQuery query = new();
+		Dictionary<string, string> result = await Mediator.Send(query, cancellationToken);
+		
+		return Ok(result);
 	}
 	
 	[HttpPost]
@@ -41,7 +53,21 @@ public class SiteItemController(IMapper mapper) : BaseController
 
 		return NoContent();
 	}
+	
+	[HttpPut]
+	[Authorize]
+	public async Task<IActionResult> UpdateAll([FromBody] Dictionary<string, string> siteItemDictionary, CancellationToken cancellationToken)
+	{
+		UpdateAllSiteItemCommand command = new()
+		{
+			SiteItemDictionary = siteItemDictionary, 
+			UpdatedById = UserId
+		};
+		
+		await Mediator.Send(command, cancellationToken);
 
+		return NoContent();
+	}
 	
 	[HttpDelete("{key}")]
 	[Authorize]

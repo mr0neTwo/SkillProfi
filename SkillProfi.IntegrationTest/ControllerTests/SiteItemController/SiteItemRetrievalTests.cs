@@ -35,4 +35,33 @@ public sealed class SiteItemRetrievalTests(SkillProfiApplicationFactory<Program>
 			await CleanEntitiesAsync();
 		} 
 	}
+	
+	[Fact]
+	public async Task GetSiteAllItem_Success()
+	{
+		// Arrange
+		SiteItem[] siteItems = [TestSiteItemData.SiteItem1, TestSiteItemData.SiteItem2, TestSiteItemData.SiteItem3];
+		await AddEntitiesAsync(siteItems);
+		
+		try
+		{
+			//Act
+			HttpResponseMessage response = await Client.GetAsync("api/SiteItem/GetAll");
+
+			// Assert
+			response.EnsureSuccessStatusCode();
+			Dictionary<string, string>? siteItemDictionary = await response.Content.ReadFromJsonAsync<Dictionary<string, string>>();
+			siteItemDictionary.Should().NotBeNull();
+			siteItemDictionary.Should().HaveCount(siteItems.Length);
+
+			foreach (SiteItem siteItem in siteItems)
+			{
+				siteItem.Title.Should().Be(siteItemDictionary![siteItem.Key]);
+			}
+		}
+		finally
+		{
+			await CleanEntitiesAsync();
+		} 
+	}
 }

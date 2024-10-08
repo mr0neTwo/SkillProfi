@@ -10,70 +10,70 @@ public static class DefaultContent
         [
             new User
             {
-                CreationDate = new DateTime(2024, 9, 1),
+                CreationDate = new DateTime(2024, 10, 1),
                 Name = "Admin",
                 Email = "admin",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 2),
+                CreationDate = new DateTime(2024, 10, 2),
                 Name = "Bob Smith",
                 Email = "bob.smith@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 3),
+                CreationDate = new DateTime(2024, 10, 3),
                 Name = "Charlie Brown",
                 Email = "charlie.brown@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 4),
+                CreationDate = new DateTime(2024, 10, 4),
                 Name = "Diana Prince",
                 Email = "diana.prince@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 5),
+                CreationDate = new DateTime(2024, 10, 5),
                 Name = "Edward Blake",
                 Email = "edward.blake@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 6),
+                CreationDate = new DateTime(2024, 10, 6),
                 Name = "Fiona Gallagher",
                 Email = "fiona.gallagher@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 7),
+                CreationDate = new DateTime(2024, 10, 7),
                 Name = "George Washington",
                 Email = "george.washington@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 8),
+                CreationDate = new DateTime(2024, 10, 8),
                 Name = "Helen Clark",
                 Email = "helen.clark@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 9),
+                CreationDate = new DateTime(2024, 10, 9),
                 Name = "Ian Malcolm",
                 Email = "ian.malcolm@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
             },
             new User
             {
-                CreationDate = new DateTime(2024, 9, 10),
+                CreationDate = new DateTime(2024, 10, 10),
                 Name = "Julia Roberts",
                 Email = "julia.roberts@example.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456")
@@ -89,7 +89,7 @@ public static class DefaultContent
         [
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 1),
+                CreationDate = new DateTime(2024, 10, 1),
                 ClientName = "John Doe",
                 ClientEmail = "john.doe@example.com",
                 Message = "I am reaching out because I am having trouble accessing my account. I tried resetting my password but have not received any emails.",
@@ -97,7 +97,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 2),
+                CreationDate = new DateTime(2024, 10, 2),
                 ClientName = "Jane Smith",
                 ClientEmail = "jane.smith@example.com",
                 Message = "I have a question about my recent order. I want to make sure that the item is being shipped to the correct address.",
@@ -105,7 +105,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 3),
+                CreationDate = new DateTime(2024, 10, 3),
                 ClientName = "Alice Johnson",
                 ClientEmail = "alice.johnson@example.com",
                 Message = "I received my package today but it appears to be damaged. I would like to request a replacement or a refund as soon as possible.",
@@ -113,7 +113,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 4),
+                CreationDate = new DateTime(2024, 10, 4),
                 ClientName = "Bob Brown",
                 ClientEmail = "bob.brown@example.com",
                 Message = "Can you help me understand why my subscription was canceled? I did not request any cancellation and would like to resume my service.",
@@ -121,7 +121,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 5),
+                CreationDate = new DateTime(2024, 10, 5),
                 ClientName = "Charlie Davis",
                 ClientEmail = "charlie.davis@example.com",
                 Message = "I would like to change the delivery address for my current order. Please update the address to ensure timely delivery.",
@@ -129,7 +129,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 6),
+                CreationDate = new DateTime(2024, 10, 6),
                 ClientName = "Diana Evans",
                 ClientEmail = "diana.evans@example.com",
                 Message = "How can I update my payment information? My credit card details have changed, and I need to make sure future payments are processed correctly.",
@@ -137,7 +137,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 7),
+                CreationDate = new DateTime(2024, 10, 7),
                 ClientName = "Edward Foster",
                 ClientEmail = "edward.foster@example.com",
                 Message = "I’m experiencing issues with the login functionality. Whenever I try to log in, I get an error message stating that my credentials are invalid.",
@@ -145,7 +145,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 8),
+                CreationDate = new DateTime(2024, 10, 8),
                 ClientName = "Fiona Green",
                 ClientEmail = "fiona.green@example.com",
                 Message = "My order arrived late and the package was not in good condition. Can I get a status update on the refund process and an explanation for the delay?",
@@ -153,7 +153,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 9),
+                CreationDate = new DateTime(2024, 10, 9),
                 ClientName = "George Harris",
                 ClientEmail = "george.harris@example.com",
                 Message = "I need assistance with cancelling a service. I tried to do it through the app but encountered several errors and it didn’t go through.",
@@ -161,7 +161,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 10),
+                CreationDate = new DateTime(2024, 10, 10),
                 ClientName = "Helen Ingram",
                 ClientEmail = "helen.ingram@example.com",
                 Message = "I have some feedback regarding the recent update to your application. The new features seem to be causing more problems than improvements.",
@@ -169,7 +169,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 11),
+                CreationDate = new DateTime(2024, 10, 11),
                 ClientName = "Ian Jenkins",
                 ClientEmail = "ian.jenkins@example.com",
                 Message = "Can you please provide more information on how to track my package? The tracking link provided seems to be broken.",
@@ -177,7 +177,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 12),
+                CreationDate = new DateTime(2024, 10, 12),
                 ClientName = "Julia King",
                 ClientEmail = "julia.king@example.com",
                 Message = "I need to update my contact information on my account. The phone number currently listed is outdated and needs to be replaced.",
@@ -185,7 +185,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 13),
+                CreationDate = new DateTime(2024, 10, 13),
                 ClientName = "Kevin Lee",
                 ClientEmail = "kevin.lee@example.com",
                 Message = "I encountered a problem with my latest purchase. The item I received is not what I ordered, and I would like to arrange an exchange.",
@@ -193,7 +193,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 14),
+                CreationDate = new DateTime(2024, 10, 14),
                 ClientName = "Laura Martinez",
                 ClientEmail = "laura.martinez@example.com",
                 Message = "There was an issue with my recent order. I ordered three items, but only two were delivered. I need assistance in resolving this discrepancy.",
@@ -201,7 +201,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 15),
+                CreationDate = new DateTime(2024, 10, 15),
                 ClientName = "Michael Nelson",
                 ClientEmail = "michael.nelson@example.com",
                 Message = "I would like to inquire about the status of my refund. I submitted a request two weeks ago and have not yet received an update.",
@@ -209,7 +209,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 16),
+                CreationDate = new DateTime(2024, 10, 16),
                 ClientName = "Nancy O'Brien",
                 ClientEmail = "nancy.obrien@example.com",
                 Message = "Please assist me with resetting my password. I have followed the instructions but have not received the reset email.",
@@ -217,7 +217,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 17),
+                CreationDate = new DateTime(2024, 10, 17),
                 ClientName = "Oscar Peters",
                 ClientEmail = "oscar.peters@example.com",
                 Message = "I am having difficulty accessing my account after the recent update. It keeps showing an error message about a system malfunction.",
@@ -225,7 +225,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 18),
+                CreationDate = new DateTime(2024, 10, 18),
                 ClientName = "Pamela Quinn",
                 ClientEmail = "pamela.quinn@example.com",
                 Message = "I need help with changing my delivery preferences. I’d like to opt for a different delivery method for my upcoming order.",
@@ -233,7 +233,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 19),
+                CreationDate = new DateTime(2024, 10, 19),
                 ClientName = "Quentin Roberts",
                 ClientEmail = "quentin.roberts@example.com",
                 Message = "I want to cancel my subscription but am having trouble doing so through your website. Could you assist me with the cancellation process?",
@@ -241,7 +241,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 20),
+                CreationDate = new DateTime(2024, 10, 20),
                 ClientName = "Rachel Scott",
                 ClientEmail = "rachel.scott@example.com",
                 Message = "I recently updated my email address, but I am still receiving notifications to my old email. Please update your records accordingly.",
@@ -249,7 +249,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 21),
+                CreationDate = new DateTime(2024, 10, 21),
                 ClientName = "Steve Turner",
                 ClientEmail = "steve.turner@example.com",
                 Message = "I need help with modifying my order. I accidentally selected the wrong item and would like to correct the order before it is shipped.",
@@ -257,7 +257,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 22),
+                CreationDate = new DateTime(2024, 10, 22),
                 ClientName = "Tina Underwood",
                 ClientEmail = "tina.underwood@example.com",
                 Message = "My account has been locked due to multiple failed login attempts. I need assistance with unlocking my account as soon as possible.",
@@ -265,7 +265,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 23),
+                CreationDate = new DateTime(2024, 10, 23),
                 ClientName = "Ursula Vincent",
                 ClientEmail = "ursula.vincent@example.com",
                 Message = "I would like to get a detailed report of my recent transactions. Can you provide a summary of all the purchases I made in the last month?",
@@ -273,7 +273,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 24),
+                CreationDate = new DateTime(2024, 10, 24),
                 ClientName = "Victor White",
                 ClientEmail = "victor.white@example.com",
                 Message = "I am having issues with the product warranty. The warranty was supposed to cover repairs, but I am being charged for the service.",
@@ -281,7 +281,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 25),
+                CreationDate = new DateTime(2024, 10, 25),
                 ClientName = "Wendy Xavier",
                 ClientEmail = "wendy.xavier@example.com",
                 Message = "I accidentally placed a duplicate order and need to cancel one of them. Please assist me with canceling the extra order.",
@@ -289,7 +289,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 26),
+                CreationDate = new DateTime(2024, 10, 26),
                 ClientName = "Xander Young",
                 ClientEmail = "xander.young@example.com",
                 Message = "I am having trouble with the checkout process. Every time I try to complete my purchase, I get an error message and can’t proceed.",
@@ -297,7 +297,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 27),
+                CreationDate = new DateTime(2024, 10, 27),
                 ClientName = "Yolanda Zane",
                 ClientEmail = "yolanda.zane@example.com",
                 Message = "Can you provide more details about the new features introduced in your latest app update? I would like to know how they work.",
@@ -305,7 +305,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 28),
+                CreationDate = new DateTime(2024, 10, 28),
                 ClientName = "Zachary Adams",
                 ClientEmail = "zachary.adams@example.com",
                 Message = "I am experiencing issues with the mobile app's performance. It has been crashing frequently, and I need help resolving this issue.",
@@ -313,7 +313,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 29),
+                CreationDate = new DateTime(2024, 10, 29),
                 ClientName = "Aiden Brown",
                 ClientEmail = "aiden.brown@example.com",
                 Message = "Please help me with the installation of the new software update. I am having trouble following the installation instructions.",
@@ -321,7 +321,7 @@ public static class DefaultContent
             },
             new ClientRequest
             {
-                CreationDate = new DateTime(2024, 9, 30),
+                CreationDate = new DateTime(2024, 10, 30),
                 ClientName = "Bella Carter",
                 ClientEmail = "bella.carter@example.com",
                 Message = "I have noticed some discrepancies in my recent bill. Can you provide a detailed explanation of the charges and correct any errors?",

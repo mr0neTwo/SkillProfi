@@ -78,4 +78,44 @@ public sealed class SiteItemUpdatingTests(SkillProfiApplicationFactory<Program> 
 			await CleanEntitiesAsync();
 		}
 	}
+	
+	[Fact]
+	public async Task UpdateAllSiteItem_Success()
+	{
+		// Arrange
+		SiteItem[] siteItems = [TestSiteItemData.SiteItem1, TestSiteItemData.SiteItem2, TestSiteItemData.SiteItem3];
+
+		await AddEntitiesAsync(siteItems);
+		
+		Dictionary<string, string> siteItemDictionary = new();
+
+		for (int i = 0; i < siteItems.Length; i++)
+		{
+			SiteItem siteItem = siteItems[i];
+			siteItemDictionary.Add(siteItem.Key, $"updated {i}");
+		}
+
+		try
+		{
+			// Act
+			HttpResponseMessage response = await Client.PutAsJsonAsync("api/SiteItem/UpdateAll", siteItemDictionary);
+
+			// Assert
+			response.EnsureSuccessStatusCode();
+			
+			List<SiteItem> updatedSiteItems = await GetAllEntitiesAsync();
+
+			updatedSiteItems.Should().NotBeNull();
+			updatedSiteItems.Count.Should().Be(siteItemDictionary.Count);
+
+			foreach (SiteItem updatedSiteItem in updatedSiteItems)
+			{
+				updatedSiteItem.Title.Should().Be(siteItemDictionary[updatedSiteItem.Key]);
+			}
+		}
+		finally
+		{
+			await CleanEntitiesAsync();
+		}
+	}
 }
