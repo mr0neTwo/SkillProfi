@@ -2,5 +2,5 @@
 
 public interface IAuthService
 {
-	Task<AuthResponse> Authenticate(AuthenticationRequest request, CancellationToken cancellationToken);
+	Task<AuthResult> Authenticate(AuthenticationRequest request, CancellationToken cancellationToken);
 }

@@ -90,245 +90,197 @@ public static class DefaultContent
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 1),
-                ClientName = "John Doe",
+                ClientName = "Джон Доу",
                 ClientEmail = "john.doe@example.com",
-                Message = "I am reaching out because I am having trouble accessing my account. I tried resetting my password but have not received any emails.",
+                Message = "Я обращаюсь к вам, так как у меня возникли проблемы с доступом к моему аккаунту. Я пытался сбросить пароль, но не получил никаких писем.",
                 Status = ClientRequestStatus.Received
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 2),
-                ClientName = "Jane Smith",
+                ClientName = "Джейн Смит",
                 ClientEmail = "jane.smith@example.com",
-                Message = "I have a question about my recent order. I want to make sure that the item is being shipped to the correct address.",
+                Message = "У меня вопрос по поводу моего недавнего заказа. Я хочу убедиться, что товар отправлен по правильному адресу.",
                 Status = ClientRequestStatus.AtWork
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 3),
-                ClientName = "Alice Johnson",
+                ClientName = "Элис Джонсон",
                 ClientEmail = "alice.johnson@example.com",
-                Message = "I received my package today but it appears to be damaged. I would like to request a replacement or a refund as soon as possible.",
+                Message = "Я получила свою посылку сегодня, но она повреждена. Я хотела бы запросить замену или возврат как можно скорее.",
                 Status = ClientRequestStatus.Done
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 4),
-                ClientName = "Bob Brown",
+                ClientName = "Боб Браун",
                 ClientEmail = "bob.brown@example.com",
-                Message = "Can you help me understand why my subscription was canceled? I did not request any cancellation and would like to resume my service.",
+                Message = "Можете помочь мне понять, почему моя подписка была отменена? Я не запрашивал отмену и хотел бы возобновить услугу.",
                 Status = ClientRequestStatus.Denied
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 5),
-                ClientName = "Charlie Davis",
+                ClientName = "Чарли Дэвис",
                 ClientEmail = "charlie.davis@example.com",
-                Message = "I would like to change the delivery address for my current order. Please update the address to ensure timely delivery.",
+                Message = "Я хотел бы изменить адрес доставки для моего текущего заказа. Пожалуйста, обновите адрес, чтобы гарантировать своевременную доставку.",
                 Status = ClientRequestStatus.Canceled
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 6),
-                ClientName = "Diana Evans",
+                ClientName = "Диана Эванс",
                 ClientEmail = "diana.evans@example.com",
-                Message = "How can I update my payment information? My credit card details have changed, and I need to make sure future payments are processed correctly.",
+                Message = "Как я могу обновить свою платежную информацию? Мои данные кредитной карты изменились, и я хочу убедиться, что будущие платежи будут обработаны правильно.",
                 Status = ClientRequestStatus.Received
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 7),
-                ClientName = "Edward Foster",
+                ClientName = "Эдвард Фостер",
                 ClientEmail = "edward.foster@example.com",
-                Message = "I’m experiencing issues with the login functionality. Whenever I try to log in, I get an error message stating that my credentials are invalid.",
+                Message = "У меня возникли проблемы с функцией входа. Каждый раз, когда я пытаюсь войти, появляется сообщение об ошибке, что мои учетные данные недействительны.",
                 Status = ClientRequestStatus.AtWork
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 8),
-                ClientName = "Fiona Green",
+                ClientName = "Фиона Грин",
                 ClientEmail = "fiona.green@example.com",
-                Message = "My order arrived late and the package was not in good condition. Can I get a status update on the refund process and an explanation for the delay?",
+                Message = "Мой заказ прибыл с задержкой, и упаковка была в плохом состоянии. Могу ли я получить обновление статуса по процессу возврата и объяснение задержки?",
                 Status = ClientRequestStatus.Done
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 9),
-                ClientName = "George Harris",
+                ClientName = "Джордж Харрис",
                 ClientEmail = "george.harris@example.com",
-                Message = "I need assistance with cancelling a service. I tried to do it through the app but encountered several errors and it didn’t go through.",
+                Message = "Мне нужна помощь с отменой услуги. Я пытался сделать это через приложение, но столкнулся с несколькими ошибками, и ничего не получилось.",
                 Status = ClientRequestStatus.Denied
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 10),
-                ClientName = "Helen Ingram",
+                ClientName = "Хелен Ингрэм",
                 ClientEmail = "helen.ingram@example.com",
-                Message = "I have some feedback regarding the recent update to your application. The new features seem to be causing more problems than improvements.",
+                Message = "У меня есть несколько замечаний по поводу последнего обновления вашего приложения. Новые функции кажутся более проблематичными, чем улучшениями.",
                 Status = ClientRequestStatus.Canceled
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 11),
-                ClientName = "Ian Jenkins",
+                ClientName = "Иэн Дженкинс",
                 ClientEmail = "ian.jenkins@example.com",
-                Message = "Can you please provide more information on how to track my package? The tracking link provided seems to be broken.",
+                Message = "Можете ли вы предоставить больше информации о том, как отслеживать мою посылку? Ссылка для отслеживания, которую я получил, кажется неработающей.",
                 Status = ClientRequestStatus.Received
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 12),
-                ClientName = "Julia King",
+                ClientName = "Джулия Кинг",
                 ClientEmail = "julia.king@example.com",
-                Message = "I need to update my contact information on my account. The phone number currently listed is outdated and needs to be replaced.",
+                Message = "Мне нужно обновить контактную информацию в моем аккаунте. Номер телефона, указанный в данный момент, устарел и требует замены.",
                 Status = ClientRequestStatus.AtWork
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 13),
-                ClientName = "Kevin Lee",
+                ClientName = "Кевин Ли",
                 ClientEmail = "kevin.lee@example.com",
-                Message = "I encountered a problem with my latest purchase. The item I received is not what I ordered, and I would like to arrange an exchange.",
+                Message = "У меня возникла проблема с последней покупкой. Товар, который я получил, не соответствует заказанному, и я хотел бы организовать обмен.",
                 Status = ClientRequestStatus.Done
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 14),
-                ClientName = "Laura Martinez",
+                ClientName = "Лаура Мартинез",
                 ClientEmail = "laura.martinez@example.com",
-                Message = "There was an issue with my recent order. I ordered three items, but only two were delivered. I need assistance in resolving this discrepancy.",
+                Message = "Возникла проблема с моим последним заказом. Я заказала три товара, но был доставлен только два. Мне нужна помощь в решении этого вопроса.",
                 Status = ClientRequestStatus.Denied
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 15),
-                ClientName = "Michael Nelson",
+                ClientName = "Майкл Нельсон",
                 ClientEmail = "michael.nelson@example.com",
-                Message = "I would like to inquire about the status of my refund. I submitted a request two weeks ago and have not yet received an update.",
+                Message = "Я хотел бы узнать статус моего возврата. Я подал запрос две недели назад, но до сих пор не получил обновления.",
                 Status = ClientRequestStatus.Canceled
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 16),
-                ClientName = "Nancy O'Brien",
+                ClientName = "Нэнси О'Брайен",
                 ClientEmail = "nancy.obrien@example.com",
-                Message = "Please assist me with resetting my password. I have followed the instructions but have not received the reset email.",
+                Message = "Пожалуйста, помогите мне со сбросом пароля. Я следовала инструкциям, но не получила письмо для сброса.",
                 Status = ClientRequestStatus.Received
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 17),
-                ClientName = "Oscar Peters",
+                ClientName = "Оскар Питерс",
                 ClientEmail = "oscar.peters@example.com",
-                Message = "I am having difficulty accessing my account after the recent update. It keeps showing an error message about a system malfunction.",
+                Message = "У меня возникли трудности с доступом к аккаунту после недавнего обновления. Появляется сообщение об ошибке системы.",
                 Status = ClientRequestStatus.AtWork
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 18),
-                ClientName = "Pamela Quinn",
+                ClientName = "Памела Куинн",
                 ClientEmail = "pamela.quinn@example.com",
-                Message = "I need help with changing my delivery preferences. I’d like to opt for a different delivery method for my upcoming order.",
+                Message = "Мне нужна помощь с изменением предпочтений доставки. Я хочу выбрать другой метод доставки для моего предстоящего заказа.",
                 Status = ClientRequestStatus.Done
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 19),
-                ClientName = "Quentin Roberts",
+                ClientName = "Квентин Робертс",
                 ClientEmail = "quentin.roberts@example.com",
-                Message = "I want to cancel my subscription but am having trouble doing so through your website. Could you assist me with the cancellation process?",
+                Message = "Я хочу отменить подписку, но не могу этого сделать через ваш сайт. Можете помочь мне с процессом отмены?",
                 Status = ClientRequestStatus.Denied
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 20),
-                ClientName = "Rachel Scott",
+                ClientName = "Рэйчел Скотт",
                 ClientEmail = "rachel.scott@example.com",
-                Message = "I recently updated my email address, but I am still receiving notifications to my old email. Please update your records accordingly.",
+                Message = "Недавно я обновила свой адрес электронной почты, но все еще получаю уведомления на старую почту. Пожалуйста, обновите ваши записи.",
                 Status = ClientRequestStatus.Canceled
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 21),
-                ClientName = "Steve Turner",
+                ClientName = "Стив Тернер",
                 ClientEmail = "steve.turner@example.com",
-                Message = "I need help with modifying my order. I accidentally selected the wrong item and would like to correct the order before it is shipped.",
+                Message = "Мне нужна помощь с изменением заказа. Я случайно выбрал неправильный товар и хочу исправить заказ до его отправки.",
                 Status = ClientRequestStatus.Received
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 22),
-                ClientName = "Tina Underwood",
+                ClientName = "Тина Андервуд",
                 ClientEmail = "tina.underwood@example.com",
-                Message = "My account has been locked due to multiple failed login attempts. I need assistance with unlocking my account as soon as possible.",
+                Message = "Мой аккаунт заблокирован после нескольких неудачных попыток входа. Пожалуйста, помогите мне восстановить доступ.",
                 Status = ClientRequestStatus.AtWork
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 23),
-                ClientName = "Ursula Vincent",
-                ClientEmail = "ursula.vincent@example.com",
-                Message = "I would like to get a detailed report of my recent transactions. Can you provide a summary of all the purchases I made in the last month?",
+                ClientName = "Урсула Венс",
+                ClientEmail = "ursula.vance@example.com",
+                Message = "Я хочу узнать больше о вашей программе лояльности и как я могу получить бонусы за покупки.",
                 Status = ClientRequestStatus.Done
             },
             new ClientRequest
             {
                 CreationDate = new DateTime(2024, 10, 24),
-                ClientName = "Victor White",
-                ClientEmail = "victor.white@example.com",
-                Message = "I am having issues with the product warranty. The warranty was supposed to cover repairs, but I am being charged for the service.",
+                ClientName = "Виктор Уэст",
+                ClientEmail = "victor.west@example.com",
+                Message = "Мне нужна помощь с активацией учетной записи. Я недавно зарегистрировался, но так и не получил письмо с подтверждением.",
                 Status = ClientRequestStatus.Denied
-            },
-            new ClientRequest
-            {
-                CreationDate = new DateTime(2024, 10, 25),
-                ClientName = "Wendy Xavier",
-                ClientEmail = "wendy.xavier@example.com",
-                Message = "I accidentally placed a duplicate order and need to cancel one of them. Please assist me with canceling the extra order.",
-                Status = ClientRequestStatus.Canceled
-            },
-            new ClientRequest
-            {
-                CreationDate = new DateTime(2024, 10, 26),
-                ClientName = "Xander Young",
-                ClientEmail = "xander.young@example.com",
-                Message = "I am having trouble with the checkout process. Every time I try to complete my purchase, I get an error message and can’t proceed.",
-                Status = ClientRequestStatus.Received
-            },
-            new ClientRequest
-            {
-                CreationDate = new DateTime(2024, 10, 27),
-                ClientName = "Yolanda Zane",
-                ClientEmail = "yolanda.zane@example.com",
-                Message = "Can you provide more details about the new features introduced in your latest app update? I would like to know how they work.",
-                Status = ClientRequestStatus.AtWork
-            },
-            new ClientRequest
-            {
-                CreationDate = new DateTime(2024, 10, 28),
-                ClientName = "Zachary Adams",
-                ClientEmail = "zachary.adams@example.com",
-                Message = "I am experiencing issues with the mobile app's performance. It has been crashing frequently, and I need help resolving this issue.",
-                Status = ClientRequestStatus.Done
-            },
-            new ClientRequest
-            {
-                CreationDate = new DateTime(2024, 10, 29),
-                ClientName = "Aiden Brown",
-                ClientEmail = "aiden.brown@example.com",
-                Message = "Please help me with the installation of the new software update. I am having trouble following the installation instructions.",
-                Status = ClientRequestStatus.Denied
-            },
-            new ClientRequest
-            {
-                CreationDate = new DateTime(2024, 10, 30),
-                ClientName = "Bella Carter",
-                ClientEmail = "bella.carter@example.com",
-                Message = "I have noticed some discrepancies in my recent bill. Can you provide a detailed explanation of the charges and correct any errors?",
-                Status = ClientRequestStatus.Canceled
             }
         ];
-
+        
         return clientRequests;
     }
 

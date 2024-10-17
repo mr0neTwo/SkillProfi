@@ -9,13 +9,31 @@ namespace SkillProfi.WebApi.Controllers;
 
 public sealed class AuthController(IMapper mapper, JwtSettings jwtSettings, IAuthService authService) : BaseController
 {
+	/// <summary>
+	/// User login.
+	/// Authenticates a user based on the provided credentials.
+	/// </summary>
+	/// <param name="userLoginDto">User login data</param>
+	/// <param name="cancellationToken">Cancellation token</param>
+	/// <returns>Authentication token or an error message</returns>
+	/// <response code="200">Success</response>
+	/// <response code="400">If the login data is incorrect</response>
 	[HttpPost]
+	[ProducesResponseType(StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<IActionResult> Login([FromBody] UserLoginDto userLoginDto, CancellationToken cancellationToken)
 	{
 		AuthenticationRequest authenticationRequest = mapper.Map<AuthenticationRequest>(userLoginDto);
-		AuthResponse authResponse = await authService.Authenticate(authenticationRequest, cancellationToken);
+		AuthResult authResult = await authService.Authenticate(authenticationRequest, cancellationToken);
+		
+		AuthResponse authResponse = new()
+		{
+			User = authResult.User, 
+			ErrorMessage = authResult.ErrorMessage, 
+			Success = authResult.Success
+		};
 
-		if (authResponse.Success)
+		if (authResult.Success)
 		{
 			var cookieOptions = new CookieOptions
 			{
@@ -25,7 +43,7 @@ public sealed class AuthController(IMapper mapper, JwtSettings jwtSettings, IAut
 				Expires = DateTime.UtcNow.AddHours(jwtSettings.AccessTokenExpirationHours)
 			};
 
-			HttpContext.Response.Cookies.Append(jwtSettings.CookieFieldName, authResponse.Token, cookieOptions);
+			HttpContext.Response.Cookies.Append(jwtSettings.CookieFieldName, authResult.Token, cookieOptions);
 			
 			return Ok(authResponse);
 		}
@@ -33,6 +51,12 @@ public sealed class AuthController(IMapper mapper, JwtSettings jwtSettings, IAut
 		return BadRequest(authResponse);
 	}
 	
+	/// <summary>
+	/// User logout.
+	/// Removes the authentication token from cookies.
+	/// </summary>
+	/// <returns>HTTP 204 (No Content) status</returns>
+	/// <response code="204">Logout successful</response>
 	[HttpGet]
 	public IActionResult Logout()
 	{
@@ -49,7 +73,14 @@ public sealed class AuthController(IMapper mapper, JwtSettings jwtSettings, IAut
 		return NoContent();
 	}
 
+	/// <summary>
+	/// Refresh token.
+	/// Generates a new authentication token for the current user.
+	/// </summary>
+	/// <returns>A new authentication token or an error message</returns>
+	/// <response code="200">Token refreshed successfully</response>
 	[HttpGet]
+	[ProducesResponseType(StatusCodes.Status200OK)]
 	public async Task<IActionResult> Refresh()
 	{
 		if (UserId != 0)
@@ -57,21 +88,21 @@ public sealed class AuthController(IMapper mapper, JwtSettings jwtSettings, IAut
 			GetUserQuery query = new() { Id = UserId };
 			UserDto userDto = await Mediator.Send(query);
 			
-			AuthResponse authResponse = new()
+			AuthResult authResult = new()
 			{
 				User = userDto,
 				Success = true
 			};
 			
-			return Ok(authResponse);
+			return Ok(authResult);
 		}
 
-		AuthResponse badResponse = new()
+		AuthResult badResult = new()
 		{
 			Success = false, 
 			ErrorMessage = "User does not exist."
 		};
 
-		return Ok(badResponse);
+		return Ok(badResult);
 	}
 }

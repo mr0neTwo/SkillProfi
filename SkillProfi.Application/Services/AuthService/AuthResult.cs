@@ -2,7 +2,7 @@
 
 namespace SkillProfi.Application.Services.AuthService;
 
-public sealed class AuthResponse
+public sealed class AuthResult
 {
 	public UserDto User { get; set; }
 	public string Token { get; set; }

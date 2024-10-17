@@ -83,9 +83,18 @@ public class Program
 				   }
 			   );
 		
+		builder.Services.AddSwaggerGen
+		(
+			config =>
+			{
+				var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+				var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+				config.IncludeXmlComments(xmlPath);
+			}
+		);
+		
 		builder.Services.AddAuthorization();
 		builder.Services.AddEndpointsApiExplorer();
-		builder.Services.AddSwaggerGen();
 		builder.Services.AddApplication();
 		builder.Services.AddPersistence(builder.Configuration);
 		builder.Services.AddControllers();
