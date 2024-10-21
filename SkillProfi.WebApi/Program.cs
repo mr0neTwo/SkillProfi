@@ -17,7 +17,11 @@ public class Program
 {
 	public static async Task Main(string[] args)
 	{
-		var builder = WebApplication.CreateBuilder(args);
+		WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+		
+		string host = Environment.GetEnvironmentVariable("API_HOST")!;
+		string port = Environment.GetEnvironmentVariable("API_PORT")!;
+		builder.WebHost.UseUrls($"http://{host}:{port}");
 
 		builder.Services.AddAutoMapper
 		(
@@ -27,6 +31,8 @@ public class Program
 				config.AddProfile(new AssemblyMappingProfile(typeof(IAppContext).Assembly));
 			}
 		);
+		
+		string corsUrl = Environment.GetEnvironmentVariable("CORS_URL")!;
 
 		builder.Services.AddCors
 		(
@@ -34,7 +40,7 @@ public class Program
 			{
 				option.AddPolicy
 				(
-					"Policy", policy => policy.WithOrigins("http://localhost:3000")
+					"Policy", policy => policy.WithOrigins(corsUrl)
 											  .AllowAnyHeader()
 											  .AllowAnyMethod()
 											  .AllowCredentials()
@@ -109,14 +115,9 @@ public class Program
 			AppDbContext dbContext = (serviceProvider.GetRequiredService<IAppContext>() as AppDbContext)!;
 			await DbInitializer.Initialize(dbContext);
 		}
-
-
-		if (app.Environment.IsDevelopment())
-		{
-			app.UseSwagger();
-			app.UseSwaggerUI();
-		}
-
+		
+		app.UseSwagger();
+		app.UseSwaggerUI();
 		app.UseCustomExceptionHandler();
 		app.UseRouting();
 		app.UseHttpsRedirection();

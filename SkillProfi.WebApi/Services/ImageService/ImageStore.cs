@@ -1,4 +1,6 @@
-﻿namespace SkillProfi.WebApi.Services.ImageService;
+﻿using System.Diagnostics;
+
+namespace SkillProfi.WebApi.Services.ImageService;
 
 public sealed class ImageStore(IWebHostEnvironment environment) : IImageStore
 {
@@ -8,6 +10,8 @@ public sealed class ImageStore(IWebHostEnvironment environment) : IImageStore
 	{
 		string fileName = $"{Guid.NewGuid()}.jpg";
 		string savePath = Path.Combine(environment.WebRootPath, FolderName, fileName);
+		Console.WriteLine(savePath);
+		Debug.WriteLine(savePath);
 
 		if (!Directory.Exists(Path.Combine(environment.WebRootPath, FolderName)))
 		{

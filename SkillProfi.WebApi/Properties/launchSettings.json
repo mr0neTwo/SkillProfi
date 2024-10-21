@@ -16,7 +16,15 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5272",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "API_HOST": "localhost",
+        "API_PORT": 500,
+        "DB_HOST": "localhost",
+        "DB_PORT": 5432,
+        "DB_NAME": "skill_profi",
+        "DB_USER": "postgres",
+        "DB_PASSWORD": "225567",
+        "CORS_URL": "http://localhost:3000"
       }
     },
     "https": {
@@ -26,7 +34,15 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7248;http://localhost:5272",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "API_HOST": "localhost",
+        "API_PORT": 500,
+        "DB_HOST": "localhost",
+        "DB_PORT": 5432,
+        "DB_NAME": "skill_profi",
+        "DB_USER": "postgres",
+        "DB_PASSWORD": "225567",
+        "CORS_URL": "http://localhost:3000"
       }
     },
     "IIS Express": {

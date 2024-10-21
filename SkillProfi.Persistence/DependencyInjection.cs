@@ -9,7 +9,13 @@ public static class DependencyInjection
 {
 	public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
 	{
-		var connectionString = configuration.GetConnectionString("DefaultConnection");
+		string host = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
+		string port = Environment.GetEnvironmentVariable("DB_PORT") ?? "5432";
+		string dbName = Environment.GetEnvironmentVariable("DB_NAME") ?? "skill_profi";
+		string user = Environment.GetEnvironmentVariable("DB_USER") ?? "postgres";
+		string password = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "225567";
+
+		string connectionString = $"Host={host};Port={port};Database={dbName};Username={user};Password={password}";
 
 		services.AddDbContext<AppDbContext>
 		(
